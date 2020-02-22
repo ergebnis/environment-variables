@@ -160,8 +160,6 @@ final class ProductionTest extends Framework\TestCase
      */
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $value = self::faker()->sentence;
-
         $variables = new Production();
 
         $this->expectException(Exception\InvalidName::class);
