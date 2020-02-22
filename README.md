@@ -21,6 +21,36 @@ $ composer require ergebnis/environment-variables
 
 ## Usage
 
+### `Ergebnis\Environment\Variables\Production`
+
+If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\Variables\Production`](src/Production.php):
+
+```php
+use Ergebnis\Environment\Variables;
+
+final class BuildEnvironment
+{
+    private $environmentVariables;
+
+    public function __construct(Variables\Production $environmentVariables)
+    {
+        $this->environmentVariables = $environmentVariables;
+    }
+
+    public function isGitHubActions(): bool
+    {
+        return $this->environmentVariables->has('GITHUB_ACTIONS')
+            && 'true' === $this->environmentVariables->get('GITHUB_ACTIONS');
+    }
+
+    public function isTravisCi(): bool
+    {
+        return $this->environmentVariables->has('TRAVIS')
+            && 'true' === $this->environmentVariables->get('TRAVIS');
+    }
+}
+```
+
 ### `Ergebnis\Environment\Variables\Test`
 
 If your tests depend on environment variables, you have the following challenges:
