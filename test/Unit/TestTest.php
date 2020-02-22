@@ -111,6 +111,7 @@ final class TestTest extends Framework\TestCase
 
     /**
      * @dataProvider provideInvalidKey
+     * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
      *
      * @param int|string $key
      */
@@ -144,8 +145,6 @@ final class TestTest extends Framework\TestCase
             'int-minus-one' => -1,
             'int-one' => 1,
             'int-zero' => 0,
-            'string-blank' => ' ',
-            'string-empty' => '',
         ];
 
         foreach ($values as $key => $value) {
