@@ -1,0 +1,54 @@
+{
+  "name": "ergebnis/environment-variables",
+  "type": "library",
+  "description": "Provides an abstraction for environment variables.",
+  "homepage": "https://github.com/ergebnis/environment-variables",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andreas Möller",
+      "email": "am@localheinz.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.2.4",
+    "ergebnis/license": "~0.1.0",
+    "ergebnis/php-cs-fixer-config": "^2.0.0",
+    "ergebnis/phpstan-rules": "~0.14.3",
+    "ergebnis/test-util": "~0.9.1",
+    "infection/infection": "~0.15.3",
+    "jangregor/phpstan-prophecy": "~0.6.2",
+    "phpstan/extension-installer": "^1.0.3",
+    "phpstan/phpstan": "~0.12.11",
+    "phpstan/phpstan-deprecation-rules": "~0.12.2",
+    "phpstan/phpstan-phpunit": "~0.12.6",
+    "phpstan/phpstan-strict-rules": "~0.12.2",
+    "phpunit/phpunit": "^8.5.2",
+    "psalm/plugin-phpunit": "~0.9.0",
+    "vimeo/psalm": "^3.9.3"
+  },
+  "config": {
+    "platform": {
+      "php": "7.2.25"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Ergebnis\\Environment\\Variables\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Ergebnis\\Environment\\Variables\\Test\\": "test/"
+    }
+  },
+  "support": {
+    "issues": "https://github.com/ergebnis/environment-variables/issues",
+    "source": "https://github.com/ergebnis/environment-variables"
+  }
+}
