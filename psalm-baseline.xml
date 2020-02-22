@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.9.3@2e4154d76e24d1b4e59e6cc2bebef7790cb9e550"/>
+<files psalm-version="3.9.3@2e4154d76e24d1b4e59e6cc2bebef7790cb9e550">
+  <file src="src/Test.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>\is_string($name)</code>
+    </DocblockTypeContradiction>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>!\is_string($name) || '' === $name</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="test/Unit/TestTest.php">
+    <InvalidArgument occurrences="1"/>
+    <InvalidScalarArgument occurrences="1"/>
+    <MixedInferredReturnType occurrences="2">
+      <code>\Generator</code>
+      <code>\Generator</code>
+    </MixedInferredReturnType>
+  </file>
+</files>
