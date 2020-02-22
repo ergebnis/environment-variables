@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1902cc2...master`][1902cc2...master].
+For a full diff see [`c0c63bb...master`][c0c63bb...master].
 
-[1902cc2...master]: https://github.com/ergebnis/environment-variables/compare/1902cc2...master
+### Added
+
+* Added `Test`, which allows backing up, restoring, and safely modifying environment variables in test environments ([#1]), by [@localheinz]
+
+[c0c63bb...master]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...master
+
+[#1]: https://github.com/ergebnis/environment-variables/pull/1
+
+[@localheinz]: https://github.com/localheinz

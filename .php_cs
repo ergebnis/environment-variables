@@ -26,7 +26,10 @@ $license = License\Type\MIT::markdown(
 
 $license->save();
 
-$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($license->header()));
+$config = Config\Factory::fromRuleSet(new Config\RuleSet\Php71($license->header()), [
+    'php_unit_internal_class' => false,
+    'php_unit_test_class_requires_covers' => false,
+]);
 
 $config->getFinder()
     ->ignoreDotFiles(false)

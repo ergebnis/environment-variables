@@ -13,8 +13,6 @@ Provides an abstraction of environment variables.
 
 ## Installation
 
-:bulb: This is a great place for showing how to install the package, see below:
-
 Run
 
 ```
@@ -23,7 +21,92 @@ $ composer require ergebnis/environment-variables
 
 ## Usage
 
-:bulb: This is a great place for showing a few usage examples!
+### `Ergebnis\Environment\Variables\Test`
+
+If your tests depend on environment variables, you have the following challenges:
+
+- when you modify environment variables in a test, you want to restore environment variables that have existed before the test run to their original values
+- when you modify environment variables in a test that has not been backed up before, and forget to restore it, it might affect other tests
+
+To solve this problem, you can use [`Ergebnis\Environment\Variables\Test`](src/Test.php):
+
+```php
+use Ergebnis\Environment\Variables;
+use PHPUnit\Framework;
+
+final class FooTest extends Framework\TestCase
+{
+    /**
+     * @var Variables\Test
+     */
+    private static $environmentVariables;
+
+    protected function setUp() : void
+    {
+        // will back up environment variables FOO, BAR, and BAZ
+        self::$environmentVariables = Variables\Test::backup(
+            'FOO',
+            'BAR',
+            'BAZ'
+        );
+    }
+
+    protected function tearDown() : void
+    {
+        // will restore backed-up environment variables FOO, BAR, and BAZ to their initial state
+        self::$environmentVariables->restore();
+    }
+
+    public function testSomethingThatDependsOnEnvironmentVariableFooToBeSet(): void
+    {
+        self::$environmentVariables->set([
+            'FOO' => '9000',
+        ]);
+
+        // ...
+    }
+
+    public function testSomethingThatDependsOnEnvironmentVariableBarToBeSet(): void
+    {
+        // will throw exception because a value for an environment variable needs to be a string or false
+        self::$environmentVariables->set([
+            'BAR' => null,
+        ]);
+
+        // ...
+    }
+
+    public function testSomethingThatDependsOnDynamicEnvironmentVariableToBeSet(): void
+    {
+        // will throw exception when $name is not a string, or an empty string, or an untrimmed string
+        self::$environmentVariables->set([
+            $name => '9000',
+        ]);
+
+        // ...
+    }
+
+    public function testSomethingThatDependsOnEnvironmentVariableQuxToBeSet(): void
+    {
+        // will throw exception because the environment variable QUX has not been backed up
+        self::$environmentVariables->set([
+            'QUX' => '9000',
+        ]);
+
+        // ...
+    }
+
+    public function testSomethingThatDependsOnEnvironmentVariableQuxToBeSet(): void
+    {
+        // will throw exception because the environment variable QUX has not been backed up
+        self::$environmentVariables->set([
+            'QUX' => '9000',
+        ]);
+
+        // ...
+    }
+}
+```
 
 ## Changelog
 

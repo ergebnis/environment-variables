@@ -3,6 +3,9 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+	ergebnis:
+		classesAllowedToBeExtended:
+			- InvalidArgumentException
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max
 	paths:
