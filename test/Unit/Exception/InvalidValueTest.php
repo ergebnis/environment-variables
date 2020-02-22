@@ -13,23 +13,20 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Variables\Test\Unit\Exception;
 
-use Ergebnis\Environment\Variables\Exception\InvalidName;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Environment\Variables\Exception\InvalidValue;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Variables\Exception\InvalidName
+ * @covers \Ergebnis\Environment\Variables\Exception\InvalidValue
  */
-final class InvalidNameTest extends Framework\TestCase
+final class InvalidValueTest extends Framework\TestCase
 {
-    use Helper;
-
     public function testCreateReturnsException(): void
     {
-        $exception = InvalidName::create();
+        $exception = InvalidValue::create();
 
-        self::assertSame('Name needs to be a non-empty, trimmed string.', $exception->getMessage());
+        self::assertSame('Value needs to be a string or false.', $exception->getMessage());
     }
 }

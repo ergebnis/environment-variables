@@ -18,7 +18,7 @@ final class Production implements Variables
     public function has(string $name): bool
     {
         if ('' === $name || \trim($name) !== $name) {
-            throw Exception\InvalidName::create($name);
+            throw Exception\InvalidName::create();
         }
 
         return false !== \getenv($name);
@@ -27,7 +27,7 @@ final class Production implements Variables
     public function get(string $name)
     {
         if ('' === $name || \trim($name) !== $name) {
-            throw Exception\InvalidName::create($name);
+            throw Exception\InvalidName::create();
         }
 
         return \getenv($name);
@@ -36,7 +36,7 @@ final class Production implements Variables
     public function set(string $name, string $value): void
     {
         if ('' === $name || \trim($name) !== $name) {
-            throw Exception\InvalidName::create($name);
+            throw Exception\InvalidName::create();
         }
 
         \putenv(\sprintf(
@@ -49,7 +49,7 @@ final class Production implements Variables
     public function unset(string $name): void
     {
         if ('' === $name || \trim($name) !== $name) {
-            throw Exception\InvalidName::create($name);
+            throw Exception\InvalidName::create();
         }
 
         \putenv($name);

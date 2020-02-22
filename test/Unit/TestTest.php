@@ -23,7 +23,8 @@ use PHPUnit\Framework;
  *
  * @covers \Ergebnis\Environment\Variables\Test
  *
- * @uses \Ergebnis\Environment\Variables\Exception\Invalid
+ * @uses \Ergebnis\Environment\Variables\Exception\InvalidName
+ * @uses \Ergebnis\Environment\Variables\Exception\InvalidValue
  * @uses \Ergebnis\Environment\Variables\Exception\NotBackedUp
  */
 final class TestTest extends Framework\TestCase
@@ -110,12 +111,12 @@ final class TestTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider provideInvalidKey
+     * @dataProvider provideInvalidName
      * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
      *
-     * @param int|string $key
+     * @param int|string $name
      */
-    public function testEnvironmentVariablesCanNotBeSetWhenTheyHaveInvalidKeys($key): void
+    public function testEnvironmentVariablesCanNotBeSetWhenTheyHaveInvalidNames($name): void
     {
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
@@ -127,15 +128,14 @@ final class TestTest extends Framework\TestCase
 
         $value = self::faker()->sentence;
 
-        $this->expectException(Exception\Invalid::class);
-        $this->expectExceptionMessage('Keys need to be string values and cannot be empty or untrimmed.');
+        $this->expectException(Exception\InvalidName::class);
 
         $environmentVariables->set([
-            $key => $value,
+            $name => $value,
         ]);
     }
 
-    public function provideInvalidKey(): \Generator
+    public function provideInvalidName(): \Generator
     {
         $faker = self::faker();
 
@@ -173,8 +173,7 @@ final class TestTest extends Framework\TestCase
             $environmentVariables->set([
                 'BAR' => $value,
             ]);
-        } catch (Exception\Invalid $exception) {
-            self::assertSame('Values need to be either string values or false.', $exception->getMessage());
+        } catch (Exception\InvalidValue $exception) {
             self::assertSame('hmm', \getenv('FOO'));
             self::assertSame('ah', \getenv('BAR'));
 
