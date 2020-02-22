@@ -13,15 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Variables\Exception;
 
-final class Invalid extends \InvalidArgumentException implements Exception
+final class InvalidValue extends \InvalidArgumentException implements Exception
 {
-    public static function names(): self
+    public static function create(): self
     {
-        return new self('Keys need to be string values and cannot be empty or untrimmed.');
-    }
-
-    public static function values(): self
-    {
-        return new self('Values need to be either string values or false.');
+        return new self('Value needs to be a string or false.');
     }
 }

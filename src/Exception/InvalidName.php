@@ -15,11 +15,8 @@ namespace Ergebnis\Environment\Variables\Exception;
 
 final class InvalidName extends \InvalidArgumentException implements Exception
 {
-    public static function create(string $name): self
+    public static function create(): self
     {
-        return new self(\sprintf(
-            'Name cannot be empty or untrimmed, but "%s" is.',
-            $name
-        ));
+        return new self('Name needs to be a non-empty, trimmed string.');
     }
 }

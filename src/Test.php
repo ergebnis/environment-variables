@@ -39,7 +39,8 @@ final class Test
     /**
      * @param array<string, false|string> $values
      *
-     * @throws Exception\Invalid
+     * @throws Exception\InvalidName
+     * @throws Exception\InvalidValue
      * @throws Exception\NotBackedUp
      */
     public function set(array $values): void
@@ -49,7 +50,7 @@ final class Test
         });
 
         if ([] !== $invalidNames) {
-            throw Exception\Invalid::names();
+            throw Exception\InvalidName::create();
         }
 
         $invalidValues = \array_filter($values, static function ($value): bool {
@@ -57,7 +58,7 @@ final class Test
         });
 
         if ([] !== $invalidValues) {
-            throw Exception\Invalid::values();
+            throw Exception\InvalidValue::create();
         }
 
         /** @var string[] $notBackedUp */
