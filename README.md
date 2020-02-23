@@ -26,7 +26,10 @@ $ composer require ergebnis/environment-variables
 If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\SystemVariables`](src/SystemVariables.php):
 
 ```php
-```php
+<?php
+
+declare(strict_types=1);
+
 use Ergebnis\Environment;
 
 final class BuildEnvironment
@@ -62,7 +65,10 @@ If your tests depend on environment variables, you have the following challenges
 To solve this problem, you can use [`Ergebnis\Environment\Test`](src/Test.php):
 
 ```php
-```php
+<?php
+
+declare(strict_types=1);
+
 use Ergebnis\Environment;
 use PHPUnit\Framework;
 
