@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Test\Unit\Exception;
+namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Variables\Exception\InvalidName;
+use Ergebnis\Environment\Exception\InvalidName;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Variables\Exception\InvalidName
+ * @covers \Ergebnis\Environment\Exception\InvalidName
  */
 final class InvalidNameTest extends Framework\TestCase
 {

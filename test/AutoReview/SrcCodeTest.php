@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Test\AutoReview;
+namespace Ergebnis\Environment\Test\AutoReview;
 
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -29,8 +29,8 @@ final class SrcCodeTest extends Framework\TestCase
     {
         self::assertClassesHaveTests(
             __DIR__ . '/../../src',
-            'Ergebnis\\Environment\\Variables\\',
-            'Ergebnis\\Environment\\Variables\\Test\\Unit\\'
+            'Ergebnis\\Environment\\',
+            'Ergebnis\\Environment\\Test\\Unit\\'
         );
     }
 }

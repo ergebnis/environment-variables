@@ -11,21 +11,21 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Test\Unit;
+namespace Ergebnis\Environment\Test\Unit;
 
-use Ergebnis\Environment\Variables\Exception;
-use Ergebnis\Environment\Variables\Test;
+use Ergebnis\Environment\Exception;
+use Ergebnis\Environment\Test;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Variables\Test
+ * @covers \Ergebnis\Environment\Test
  *
- * @uses \Ergebnis\Environment\Variables\Exception\InvalidName
- * @uses \Ergebnis\Environment\Variables\Exception\InvalidValue
- * @uses \Ergebnis\Environment\Variables\Exception\NotBackedUp
+ * @uses \Ergebnis\Environment\Exception\InvalidName
+ * @uses \Ergebnis\Environment\Exception\InvalidValue
+ * @uses \Ergebnis\Environment\Exception\NotBackedUp
  */
 final class TestTest extends Framework\TestCase
 {
@@ -112,7 +112,7 @@ final class TestTest extends Framework\TestCase
 
     /**
      * @dataProvider provideInvalidName
-     * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
      *
      * @param int|string $name
      */

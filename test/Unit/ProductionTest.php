@@ -11,21 +11,21 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Test\Unit;
+namespace Ergebnis\Environment\Test\Unit;
 
-use Ergebnis\Environment\Variables\Exception;
-use Ergebnis\Environment\Variables\Production;
-use Ergebnis\Environment\Variables\Test;
+use Ergebnis\Environment\Exception;
+use Ergebnis\Environment\Production;
+use Ergebnis\Environment\Test;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Variables\Production
+ * @covers \Ergebnis\Environment\Production
  *
- * @uses \Ergebnis\Environment\Variables\Exception\InvalidName
- * @uses \Ergebnis\Environment\Variables\Test
+ * @uses \Ergebnis\Environment\Exception\InvalidName
+ * @uses \Ergebnis\Environment\Test
  */
 final class ProductionTest extends Framework\TestCase
 {
@@ -51,7 +51,7 @@ final class ProductionTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
      *
      * @param string $name
      */
@@ -85,7 +85,7 @@ final class ProductionTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
      *
      * @param string $name
      */
@@ -121,7 +121,7 @@ final class ProductionTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
      *
      * @param string $name
      */
@@ -154,7 +154,7 @@ final class ProductionTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Variables\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
      *
      * @param string $name
      */

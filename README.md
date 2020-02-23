@@ -21,18 +21,19 @@ $ composer require ergebnis/environment-variables
 
 ## Usage
 
-### `Ergebnis\Environment\Variables\Production`
+### `Ergebnis\Environment\Production`
 
-If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\Variables\Production`](src/Production.php):
+If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\Production`](src/Production.php):
 
 ```php
-use Ergebnis\Environment\Variables;
+```php
+use Ergebnis\Environment;
 
 final class BuildEnvironment
 {
     private $environmentVariables;
 
-    public function __construct(Variables\Production $environmentVariables)
+    public function __construct(Environment\Production $environmentVariables)
     {
         $this->environmentVariables = $environmentVariables;
     }
@@ -51,30 +52,31 @@ final class BuildEnvironment
 }
 ```
 
-### `Ergebnis\Environment\Variables\Test`
+### `Ergebnis\Environment\Test`
 
 If your tests depend on environment variables, you have the following challenges:
 
 - when you modify environment variables in a test, you want to restore environment variables that have existed before the test run to their original values
 - when you modify environment variables in a test that has not been backed up before, and forget to restore it, it might affect other tests
 
-To solve this problem, you can use [`Ergebnis\Environment\Variables\Test`](src/Test.php):
+To solve this problem, you can use [`Ergebnis\Environment\Test`](src/Test.php):
 
 ```php
-use Ergebnis\Environment\Variables;
+```php
+use Ergebnis\Environment;
 use PHPUnit\Framework;
 
 final class FooTest extends Framework\TestCase
 {
     /**
-     * @var Variables\Test
+     * @var Environment\Test
      */
     private static $environmentVariables;
 
     protected function setUp() : void
     {
         // will back up environment variables FOO, BAR, and BAZ
-        self::$environmentVariables = Variables\Test::backup(
+        self::$environmentVariables = Environment\Test::backup(
             'FOO',
             'BAR',
             'BAZ'
