@@ -14,6 +14,7 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 * Added `Production`, which allows reading, setting, and unsetting environment variables in production environments ([#2]), by [@localheinz]
 * Added `FakeVariables`, which can be used as a fake implementation of `Variables` in test environments ([#7]), by [@localheinz]
 * Added `ReadOnlyVariables`, which can be used as a mock implementation of `Variables` in test environments ([#8]), by [@localheinz]
+* Added `toArray()` to `Ergebnis\Environment\Variables` ([#18]), by [@localheinz]
 
 ### Changed
 
@@ -38,5 +39,6 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 [#15]: https://github.com/ergebnis/environment-variables/pull/15
 [#16]: https://github.com/ergebnis/environment-variables/pull/16
 [#17]: https://github.com/ergebnis/environment-variables/pull/17
+[#18]: https://github.com/ergebnis/environment-variables/pull/18
 
 [@localheinz]: https://github.com/localheinz

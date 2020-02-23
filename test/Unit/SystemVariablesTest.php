@@ -186,4 +186,35 @@ final class SystemVariablesTest extends Framework\TestCase
 
         self::assertFalse(\getenv(self::NAME));
     }
+
+    public function testToArrayReturnsCurrentValues(): void
+    {
+        $variables = new SystemVariables();
+
+        self::assertSame(\getenv(), $variables->toArray());
+    }
+
+    public function testToArrayReturnsValuesWhenValueHasBeenSet(): void
+    {
+        $value = self::faker()->sentence;
+
+        \putenv(\sprintf(
+            '%s=%s',
+            self::NAME,
+            $value
+        ));
+
+        $variables = new SystemVariables();
+
+        self::assertSame(\getenv(), $variables->toArray());
+    }
+
+    public function testToArrayReturnsValuesWhenValueHasBeenUnset(): void
+    {
+        \putenv(self::NAME);
+
+        $variables = new SystemVariables();
+
+        self::assertSame(\getenv(), $variables->toArray());
+    }
 }

@@ -209,4 +209,61 @@ final class FakeVariablesTest extends Framework\TestCase
 
         self::assertFalse($variables->has(self::NAME));
     }
+
+    public function testToArrayReturnsInjectedValues(): void
+    {
+        $values = [
+            'FOO' => '9000',
+            'BAR' => 'ok',
+            'BAZ' => 'aha',
+        ];
+
+        $variables = new FakeVariables($values);
+
+        self::assertSame($values, $variables->toArray());
+    }
+
+    public function testToArrayReturnsValuesWhenValueHasBeenSet(): void
+    {
+        $values = [
+            'FOO' => '9000',
+            'BAR' => 'ok',
+            'BAZ' => 'aha',
+        ];
+
+        $variables = new FakeVariables($values);
+
+        $variables->set(
+            'FOO',
+            '9001'
+        );
+
+        $expected = [
+            'FOO' => '9001',
+            'BAR' => 'ok',
+            'BAZ' => 'aha',
+        ];
+
+        self::assertSame($expected, $variables->toArray());
+    }
+
+    public function testToArrayReturnsValuesWhenValueHasBeenUnset(): void
+    {
+        $values = [
+            'FOO' => '9000',
+            'BAR' => 'ok',
+            'BAZ' => 'aha',
+        ];
+
+        $variables = new FakeVariables($values);
+
+        $variables->unset('FOO');
+
+        $expected = [
+            'BAR' => 'ok',
+            'BAZ' => 'aha',
+        ];
+
+        self::assertSame($expected, $variables->toArray());
+    }
 }

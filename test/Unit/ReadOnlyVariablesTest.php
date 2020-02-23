@@ -177,4 +177,17 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
         $variables->unset(self::NAME);
     }
+
+    public function testToArrayReturnsInjectedValues(): void
+    {
+        $values = [
+            'FOO' => '9000',
+            'BAR' => 'ok',
+            'BAZ' => 'aha',
+        ];
+
+        $variables = new ReadOnlyVariables($values);
+
+        self::assertSame($values, $variables->toArray());
+    }
 }

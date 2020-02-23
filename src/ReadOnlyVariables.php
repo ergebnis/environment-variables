@@ -80,4 +80,9 @@ final class ReadOnlyVariables implements Variables
     {
         throw Exception\ShouldNotBeUsed::create(__METHOD__);
     }
+
+    public function toArray(): array
+    {
+        return $this->values;
+    }
 }

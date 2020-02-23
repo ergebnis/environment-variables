@@ -16,6 +16,12 @@
       <code>!\is_string($name) || '' === $name</code>
     </RedundantConditionGivenDocblockType>
   </file>
+  <file src="src/SystemVariables.php">
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>\getenv()</code>
+      <code>array</code>
+    </MixedReturnTypeCoercion>
+  </file>
   <file src="test/Unit/FakeVariablesTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
   </file>

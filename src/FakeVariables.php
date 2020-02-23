@@ -88,4 +88,9 @@ final class FakeVariables implements Variables
 
         unset($this->values[$name]);
     }
+
+    public function toArray(): array
+    {
+        return $this->values;
+    }
 }
