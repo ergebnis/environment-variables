@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Environment\Test\Unit;
 
 use Ergebnis\Environment\Exception;
-use Ergebnis\Environment\Production;
+use Ergebnis\Environment\SystemVariables;
 use Ergebnis\Environment\Test;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
@@ -22,12 +22,12 @@ use PHPUnit\Framework;
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Production
+ * @covers \Ergebnis\Environment\SystemVariables
  *
  * @uses \Ergebnis\Environment\Exception\InvalidName
  * @uses \Ergebnis\Environment\Test
  */
-final class ProductionTest extends Framework\TestCase
+final class SystemVariablesTest extends Framework\TestCase
 {
     use Helper;
 
@@ -57,7 +57,7 @@ final class ProductionTest extends Framework\TestCase
      */
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -66,7 +66,7 @@ final class ProductionTest extends Framework\TestCase
 
     public function testHasReturnsFalseWhenEnvironmentVariableIsNotSet(): void
     {
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         self::assertFalse($variables->has(self::NAME));
     }
@@ -79,7 +79,7 @@ final class ProductionTest extends Framework\TestCase
             self::faker()->sentence
         ));
 
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         self::assertTrue($variables->has(self::NAME));
     }
@@ -91,7 +91,7 @@ final class ProductionTest extends Framework\TestCase
      */
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -100,7 +100,7 @@ final class ProductionTest extends Framework\TestCase
 
     public function testGetReturnsFalseWhenEnvironmentVariableIsNotSet(): void
     {
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         self::assertFalse($variables->get(self::NAME));
     }
@@ -115,7 +115,7 @@ final class ProductionTest extends Framework\TestCase
             $value
         ));
 
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         self::assertSame($value, $variables->get(self::NAME));
     }
@@ -129,7 +129,7 @@ final class ProductionTest extends Framework\TestCase
     {
         $value = self::faker()->sentence;
 
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -143,7 +143,7 @@ final class ProductionTest extends Framework\TestCase
     {
         $value = self::faker()->sentence;
 
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         $variables->set(
             self::NAME,
@@ -160,7 +160,7 @@ final class ProductionTest extends Framework\TestCase
      */
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -177,7 +177,7 @@ final class ProductionTest extends Framework\TestCase
             $value
         ));
 
-        $variables = new Production();
+        $variables = new SystemVariables();
 
         $variables->unset(self::NAME);
 

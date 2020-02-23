@@ -21,9 +21,9 @@ $ composer require ergebnis/environment-variables
 
 ## Usage
 
-### `Ergebnis\Environment\Production`
+### `Ergebnis\Environment\SystemVariables`
 
-If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\Production`](src/Production.php):
+If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\SystemVariables`](src/SystemVariables.php):
 
 ```php
 ```php
@@ -33,7 +33,7 @@ final class BuildEnvironment
 {
     private $environmentVariables;
 
-    public function __construct(Environment\Production $environmentVariables)
+    public function __construct(Environment\SystemVariables $environmentVariables)
     {
         $this->environmentVariables = $environmentVariables;
     }
