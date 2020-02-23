@@ -14,20 +14,20 @@ declare(strict_types=1);
 namespace Ergebnis\Environment\Test\Unit;
 
 use Ergebnis\Environment\Exception;
-use Ergebnis\Environment\Test;
+use Ergebnis\Environment\TestVariables;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Test
+ * @covers \Ergebnis\Environment\TestVariables
  *
  * @uses \Ergebnis\Environment\Exception\InvalidName
  * @uses \Ergebnis\Environment\Exception\InvalidValue
  * @uses \Ergebnis\Environment\Exception\NotBackedUp
  */
-final class TestTest extends Framework\TestCase
+final class TestVariablesTest extends Framework\TestCase
 {
     use Helper;
 
@@ -74,7 +74,7 @@ final class TestTest extends Framework\TestCase
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
 
-        $environmentVariables = Test::backup(
+        $environmentVariables = TestVariables::backup(
             'FOO',
             'BAR'
         );
@@ -94,7 +94,7 @@ final class TestTest extends Framework\TestCase
         \putenv('BAR=ah');
         \putenv('BAZ=oh');
 
-        $environmentVariables = Test::backup(
+        $environmentVariables = TestVariables::backup(
             'FOO',
             'BAR'
         );
@@ -121,7 +121,7 @@ final class TestTest extends Framework\TestCase
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
 
-        $environmentVariables = Test::backup(
+        $environmentVariables = TestVariables::backup(
             'FOO',
             'BAR'
         );
@@ -146,7 +146,7 @@ final class TestTest extends Framework\TestCase
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
 
-        $environmentVariables = Test::backup(
+        $environmentVariables = TestVariables::backup(
             'FOO',
             'BAR'
         );
@@ -170,7 +170,7 @@ final class TestTest extends Framework\TestCase
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
 
-        $environmentVariables = Test::backup(
+        $environmentVariables = TestVariables::backup(
             'FOO',
             'BAR'
         );
@@ -200,7 +200,7 @@ final class TestTest extends Framework\TestCase
         \putenv('BAR=ah');
         \putenv('BAZ=oho');
 
-        $environmentVariables = Test::backup(
+        $environmentVariables = TestVariables::backup(
             'FOO',
             'BAR',
             'BAZ'

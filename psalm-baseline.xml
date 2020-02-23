@@ -1,26 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="3.9.3@2e4154d76e24d1b4e59e6cc2bebef7790cb9e550">
-  <file src="src/FakeVariables.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>\is_string($name)</code>
-    </DocblockTypeContradiction>
-    <MissingPropertyType occurrences="1">
-      <code>$values</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;values</code>
-      <code>$this-&gt;values</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$this-&gt;values[$name]</code>
-    </MixedArrayAccess>
-    <MixedInferredReturnType occurrences="1">
-      <code>get</code>
-    </MixedInferredReturnType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>!\is_string($name) || '' === $name</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/ReadOnlyVariables.php">
     <DocblockTypeContradiction occurrences="1">
       <code>\is_string($name)</code>
@@ -38,23 +17,5 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>!\is_string($name) || '' === $name</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Test.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>\is_string($name)</code>
-    </DocblockTypeContradiction>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>!\is_string($name) || '' === $name</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="test/Unit/FakeVariablesTest.php">
-    <MixedArgumentTypeCoercion occurrences="2"/>
-  </file>
-  <file src="test/Unit/ReadOnlyVariablesTest.php">
-    <MixedArgumentTypeCoercion occurrences="2"/>
-  </file>
-  <file src="test/Unit/TestTest.php">
-    <InvalidScalarArgument occurrences="1"/>
-    <MixedArgumentTypeCoercion occurrences="1"/>
   </file>
 </files>

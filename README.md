@@ -32,7 +32,7 @@ This package also provides the following test implementations:
 
 This package also provides a helper when you actually need to backup, modify, and restore environment variables in tests:
 
-- [`Ergebnis\Environment\Test`](#ergebnisenvironmenttest)
+- [`Ergebnis\Environment\TestVariables`](#ergebnisenvironmenttestvariables)
 
 ### Production Implementation
 
@@ -171,14 +171,14 @@ final class BuildEnvironmentTest extends Framework\TestCase
 
 ### Test Utility
 
-#### `Ergebnis\Environment\Test`
+#### `Ergebnis\Environment\TestVariables`
 
 If your tests depend on environment variables, you have the following challenges:
 
 - when you modify environment variables in a test, you want to restore environment variables that have existed before the test run to their original values
 - when you modify environment variables in a test that has not been backed up before, and forget to restore it, it might affect other tests
 
-To solve this problem, you can use [`Ergebnis\Environment\Test`](src/Test.php):
+To solve this problem, you can use [`Ergebnis\Environment\TestVariables`](src/TestVariables.php):
 
 ```php
 <?php
@@ -191,7 +191,7 @@ use PHPUnit\Framework;
 final class FooTest extends Framework\TestCase
 {
     /**
-     * @var Environment\Test
+     * @var Environment\TestVariables
      */
     private static $environmentVariables;
 

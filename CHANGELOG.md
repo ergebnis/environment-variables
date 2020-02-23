@@ -19,6 +19,7 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 
 * Renamed namespace `Ergebnis\Environment\Variables` to `Ergebnis\Environment` ([#5]), by [@localheinz]
 * Renamed `Ergebnis\Environment\Production` to `Ergebnis\Environment\SystemVariables` ([#6]), by [@localheinz]
+* Renamed `Ergebnis\Environment\Test` to `Ergebnis\Environment\TestVariables` ([#9]), by [@localheinz]
 
 [c0c63bb...master]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...master
 
@@ -28,5 +29,6 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 [#6]: https://github.com/ergebnis/environment-variables/pull/6
 [#7]: https://github.com/ergebnis/environment-variables/pull/7
 [#8]: https://github.com/ergebnis/environment-variables/pull/8
+[#9]: https://github.com/ergebnis/environment-variables/pull/9
 
 [@localheinz]: https://github.com/localheinz

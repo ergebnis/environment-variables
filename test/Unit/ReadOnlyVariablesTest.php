@@ -26,7 +26,7 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Environment\Exception\InvalidName
  * @uses \Ergebnis\Environment\Exception\InvalidValue
  * @uses \Ergebnis\Environment\Exception\ShouldNotBeUsed
- * @uses \Ergebnis\Environment\Test
+ * @uses \Ergebnis\Environment\TestVariables
  */
 final class ReadOnlyVariablesTest extends Framework\TestCase
 {
