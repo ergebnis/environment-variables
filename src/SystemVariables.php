@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment;
 
-use Ergebnis\Environment\Exception\CouldNotSet;
-
 final class SystemVariables implements Variables
 {
     public function has(string $name): bool
@@ -48,7 +46,7 @@ final class SystemVariables implements Variables
         ));
 
         if (false === $hasBeenSet) {
-            throw CouldNotSet::name($name);
+            throw Exception\CouldNotSet::name($name);
         }
     }
 
@@ -58,6 +56,10 @@ final class SystemVariables implements Variables
             throw Exception\InvalidName::create();
         }
 
-        \putenv($name);
+        $hasBeenUnset = \putenv($name);
+
+        if (false === $hasBeenUnset) {
+            throw Exception\CouldNotUnset::name($name);
+        }
     }
 }
