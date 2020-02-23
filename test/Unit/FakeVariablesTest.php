@@ -25,6 +25,7 @@ use PHPUnit\Framework;
  *
  * @uses \Ergebnis\Environment\Exception\InvalidName
  * @uses \Ergebnis\Environment\Exception\InvalidValue
+ * @uses \Ergebnis\Environment\Exception\NotSet
  * @uses \Ergebnis\Environment\TestVariables
  */
 final class FakeVariablesTest extends Framework\TestCase
@@ -118,20 +119,24 @@ final class FakeVariablesTest extends Framework\TestCase
         $variables->get($name);
     }
 
-    public function testGetReturnsFalseWhenEnvironmentVariableHasNotBeenInjected(): void
+    public function testGetThrowsNotSetWhenEnvironmentVariableHasNotBeenInjected(): void
     {
         $variables = new FakeVariables();
 
-        self::assertFalse($variables->get(self::NAME));
+        $this->expectException(Exception\NotSet::class);
+
+        $variables->get(self::NAME);
     }
 
-    public function testGetReturnsFalseWhenEnvironmentVariableHasBeenInjectedButValueIsFalse(): void
+    public function testGetThrowsNotSetWhenEnvironmentVariableHasBeenInjectedButValueIsFalse(): void
     {
         $variables = new FakeVariables([
             self::NAME => false,
         ]);
 
-        self::assertFalse($variables->get(self::NAME));
+        $this->expectException(Exception\NotSet::class);
+
+        $variables->get(self::NAME);
     }
 
     public function testGetReturnsValueWhenEnvironmentVariableHasBeenInjectedAndValueIsNotFalse(): void
@@ -202,6 +207,6 @@ final class FakeVariablesTest extends Framework\TestCase
 
         $variables->unset(self::NAME);
 
-        self::assertFalse($variables->get(self::NAME));
+        self::assertFalse($variables->has(self::NAME));
     }
 }

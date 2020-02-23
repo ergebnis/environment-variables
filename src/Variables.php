@@ -29,9 +29,9 @@ interface Variables
      *
      * @throws Exception\InvalidName
      *
-     * @return bool|string
+     * @return string
      */
-    public function get(string $name);
+    public function get(string $name): string;
 
     /**
      * @param string $name
