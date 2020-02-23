@@ -12,24 +12,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>\is_string($name)</code>
     </DocblockTypeContradiction>
-    <MissingPropertyType occurrences="1">
-      <code>$values</code>
-    </MissingPropertyType>
-    <MixedArgument occurrences="2">
-      <code>$this-&gt;values</code>
-      <code>$this-&gt;values</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>get</code>
-    </MixedInferredReturnType>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>!\is_string($name) || '' === $name</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/TestVariables.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>\is_string($name)</code>
-    </DocblockTypeContradiction>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>!\is_string($name) || '' === $name</code>
     </RedundantConditionGivenDocblockType>
@@ -39,9 +21,5 @@
   </file>
   <file src="test/Unit/ReadOnlyVariablesTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
-  </file>
-  <file src="test/Unit/TestVariablesTest.php">
-    <InvalidScalarArgument occurrences="1"/>
-    <MixedArgumentTypeCoercion occurrences="1"/>
   </file>
 </files>

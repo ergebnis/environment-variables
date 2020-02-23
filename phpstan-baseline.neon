@@ -41,21 +41,6 @@ parameters:
 			path: src/ReadOnlyVariables.php
 
 		-
-			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
-			count: 1
-			path: src/TestVariables.php
-
-		-
-			message: "#^Result of && is always false\\.$#"
-			count: 1
-			path: src/TestVariables.php
-
-		-
-			message: "#^Strict comparison using \\!\\=\\= between false and false will always evaluate to false\\.$#"
-			count: 1
-			path: src/TestVariables.php
-
-		-
 			message: "#^Parameter \\#1 \\$values of class Ergebnis\\\\Environment\\\\FakeVariables constructor expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
 			count: 1
 			path: test/Unit/FakeVariablesTest.php
@@ -64,9 +49,4 @@ parameters:
 			message: "#^Parameter \\#1 \\$values of class Ergebnis\\\\Environment\\\\ReadOnlyVariables constructor expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
 			count: 1
 			path: test/Unit/ReadOnlyVariablesTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$values of method Ergebnis\\\\Environment\\\\TestVariables\\:\\:set\\(\\) expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
-			count: 1
-			path: test/Unit/TestVariablesTest.php
 

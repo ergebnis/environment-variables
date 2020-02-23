@@ -13,81 +13,135 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment;
 
-final class TestVariables
+final class TestVariables implements Variables
 {
-    private $values;
+    private $systemVariables;
+
+    private $backedUpVariables;
 
     /**
-     * @param array<string, string> $values
+     * @param array<string, false|string> $backedUpVariables
+     * @param SystemVariables             $systemVariables
      */
-    private function __construct(array $values)
+    private function __construct(SystemVariables $systemVariables, array $backedUpVariables)
     {
-        $this->values = $values;
+        $this->systemVariables = $systemVariables;
+        $this->backedUpVariables = $backedUpVariables;
     }
 
     public static function backup(string ...$names): self
     {
-        /** @var array<string, string> $values */
-        $values = \array_intersect_key(
+        /** @var array<string, false> $possiblyUnsetVariables */
+        $possiblyUnsetVariables = \array_combine(
+            $names,
+            \array_fill(
+                0,
+                \count($names),
+                false
+            )
+        );
+
+        /** @var array<string, string> $currentlySetVariables */
+        $currentlySetVariables = \array_intersect_key(
             \getenv(),
             \array_flip($names)
         );
 
-        return new self($values);
+        $backedUpVariables = \array_merge(
+            $possiblyUnsetVariables,
+            $currentlySetVariables
+        );
+
+        return new self(
+            new SystemVariables(),
+            $backedUpVariables
+        );
     }
 
-    /**
-     * @param array<string, false|string> $values
-     *
-     * @throws Exception\InvalidName
-     * @throws Exception\InvalidValue
-     * @throws Exception\NotBackedUp
-     */
-    public function set(array $values): void
+    public function has(string $name): bool
     {
-        $invalidNames = \array_filter(\array_keys($values), static function ($name): bool {
-            return !\is_string($name) || '' === $name || \trim($name) !== $name;
-        });
-
-        if ([] !== $invalidNames) {
+        if ('' === $name || \trim($name) !== $name) {
             throw Exception\InvalidName::create();
         }
 
-        $invalidValues = \array_filter($values, static function ($value): bool {
-            return !\is_string($value) && false !== $value;
-        });
+        return $this->systemVariables->has($name);
+    }
 
-        if ([] !== $invalidValues) {
-            throw Exception\InvalidValue::create();
+    public function get(string $name): string
+    {
+        if ('' === $name || \trim($name) !== $name) {
+            throw Exception\InvalidName::create();
         }
 
-        /** @var string[] $notBackedUp */
-        $notBackedUp = \array_diff(
-            \array_keys($values),
-            \array_keys($this->values)
-        );
-
-        if ([] !== $notBackedUp) {
-            throw Exception\NotBackedUp::names(...$notBackedUp);
+        if (!$this->systemVariables->has($name)) {
+            throw Exception\NotSet::name($name);
         }
 
-        foreach ($values as $name => $value) {
+        return $this->systemVariables->get($name);
+    }
+
+    public function set(string $name, string $value): void
+    {
+        if ('' === $name || \trim($name) !== $name) {
+            throw Exception\InvalidName::create();
+        }
+
+        if (!\array_key_exists($name, $this->backedUpVariables)) {
+            throw Exception\NotBackedUp::names($name);
+        }
+
+        try {
+            $this->systemVariables->set(
+                $name,
+                $value
+            );
+        } catch (Exception\CouldNotSet $exception) {
+            throw Exception\CouldNotSet::name($name);
+        }
+    }
+
+    public function unset(string $name): void
+    {
+        if ('' === $name || \trim($name) !== $name) {
+            throw Exception\InvalidName::create();
+        }
+
+        if (!\array_key_exists($name, $this->backedUpVariables)) {
+            throw Exception\NotBackedUp::names($name);
+        }
+
+        try {
+            $this->systemVariables->unset($name);
+        } catch (Exception\CouldNotUnset $exception) {
+            throw Exception\CouldNotUnset::name($name);
+        }
+    }
+
+    /**
+     * @throws Exception\CouldNotSet
+     * @throws Exception\CouldNotUnset
+     */
+    public function restore(): void
+    {
+        foreach ($this->backedUpVariables as $name => $value) {
             if (false === $value) {
-                \putenv($name);
+                try {
+                    $this->systemVariables->unset($name);
+                } catch (Exception\CouldNotUnset $exception) {
+                    throw Exception\CouldNotUnset::name($name);
+                }
 
                 continue;
             }
 
-            \putenv(\sprintf(
-                '%s=%s',
-                $name,
-                $value
-            ));
+            try {
+                $this->systemVariables->set(
+                    $name,
+                    $value
+                );
+            } catch (Exception\CouldNotSet $exception) {
+                throw Exception\CouldNotSet::name($name);
+            }
         }
-    }
-
-    public function restore(): void
-    {
-        $this->set($this->values);
     }
 }

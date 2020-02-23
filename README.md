@@ -29,9 +29,6 @@ This package also provides the following test implementations:
 
 - [`Ergebnis\Environment\FakeVariables`](#ergebnisenvironmentfakevariables)
 - [`Ergebnis\Environment\ReadOnlyVariables`](#ergebnisenvironmentreadonlyvariables)
-
-This package also provides a helper when you actually need to backup, modify, and restore environment variables in tests:
-
 - [`Ergebnis\Environment\TestVariables`](#ergebnisenvironmenttestvariables)
 
 ### Production Implementation
@@ -169,8 +166,6 @@ final class BuildEnvironmentTest extends Framework\TestCase
 - `set()`
 - `unset()`
 
-### Test Utility
-
 #### `Ergebnis\Environment\TestVariables`
 
 If your tests depend on environment variables, you have the following challenges:
@@ -198,7 +193,7 @@ final class FooTest extends Framework\TestCase
     protected function setUp() : void
     {
         // will back up environment variables FOO, BAR, and BAZ
-        self::$environmentVariables = Environment\Test::backup(
+        self::$environmentVariables = Environment\TestVariables::backup(
             'FOO',
             'BAR',
             'BAZ'
@@ -213,29 +208,17 @@ final class FooTest extends Framework\TestCase
 
     public function testSomethingThatDependsOnEnvironmentVariableFooToBeSet(): void
     {
-        self::$environmentVariables->set([
-            'FOO' => '9000',
-        ]);
+        self::$environmentVariables->set(
+            'FOO',
+            '9000'
+        );
 
         // ...
     }
 
-    public function testSomethingThatDependsOnEnvironmentVariableBarToBeSet(): void
+    public function testSomethingThatDependsOnEnvironmentVariableFooToBeUnset(): void
     {
-        // will throw exception because a value for an environment variable needs to be a string or false
-        self::$environmentVariables->set([
-            'BAR' => null,
-        ]);
-
-        // ...
-    }
-
-    public function testSomethingThatDependsOnDynamicEnvironmentVariableToBeSet(): void
-    {
-        // will throw exception when $name is not a string, or an empty string, or an untrimmed string
-        self::$environmentVariables->set([
-            $name => '9000',
-        ]);
+        self::$environmentVariables->unset('FOO');
 
         // ...
     }
@@ -243,21 +226,18 @@ final class FooTest extends Framework\TestCase
     public function testSomethingThatDependsOnEnvironmentVariableQuxToBeSet(): void
     {
         // will throw exception because the environment variable QUX has not been backed up
-        self::$environmentVariables->set([
-            'QUX' => '9000',
-        ]);
+        self::$environmentVariables->set(
+            'QUX',
+            '9000'
+        );
 
         // ...
     }
 
-    public function testSomethingThatDependsOnEnvironmentVariableQuxToBeSet(): void
+    public function testSomethingThatDependsOnEnvironmentVariableQuxToBeUnset(): void
     {
         // will throw exception because the environment variable QUX has not been backed up
-        self::$environmentVariables->set([
-            'QUX' => '9000',
-        ]);
-
-        // ...
+        self::$environmentVariables->unset('QUX');
     }
 }
 ```
