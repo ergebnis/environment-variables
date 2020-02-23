@@ -25,7 +25,8 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 * Started throwing `Ergebnis\Environment\Exception\CouldNotUnset` when a system environment variable could not be unset ([#15]), by [@localheinz]
 * Started throwing `Ergebnis\Environment\Exception\NotSet` when attempting to retrieve the value of an environment variable that is not set ([#16]), by [@localheinz]
 * Adjusted `Ergebnis\Environment\TestVariables` so it implements the `Ergebnis\Environment\Variables` interface as well ([#17]), by [@localheinz]
-* Extracted named constructors `Ergebnis\Environment\FakeVariables::empty()` `Ergebnis\Environment\FakeVariables::fromArray()` ([#19]), by [@localheinz]
+* Extracted named constructors `Ergebnis\Environment\FakeVariables::empty()` and `Ergebnis\Environment\FakeVariables::fromArray()` ([#19]), by [@localheinz]
+* Extracted named constructors `Ergebnis\Environment\ReadOnlyVariables::empty()` and `Ergebnis\Environment\ReadOnlyVariables::fromArray()` ([#20]), by [@localheinz]
 
 [c0c63bb...master]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...master
 
@@ -42,5 +43,6 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 [#17]: https://github.com/ergebnis/environment-variables/pull/17
 [#18]: https://github.com/ergebnis/environment-variables/pull/18
 [#19]: https://github.com/ergebnis/environment-variables/pull/19
+[#20]: https://github.com/ergebnis/environment-variables/pull/20
 
 [@localheinz]: https://github.com/localheinz

@@ -15,10 +15,20 @@ namespace Ergebnis\Environment;
 
 final class ReadOnlyVariables implements Variables
 {
+    private $values;
+
     /**
-     * @var array<string, string>
+     * @param array<string, string> $values
      */
-    private $values = [];
+    private function __construct(array $values)
+    {
+        $this->values = $values;
+    }
+
+    public static function empty(): self
+    {
+        return new self([]);
+    }
 
     /**
      * @param array<string, false|string> $values
@@ -26,7 +36,7 @@ final class ReadOnlyVariables implements Variables
      * @throws Exception\InvalidName
      * @throws Exception\InvalidValue
      */
-    public function __construct(array $values = [])
+    public static function fromArray(array $values): self
     {
         $invalidNames = \array_filter(\array_keys($values), static function ($name): bool {
             return !\is_string($name) || '' === $name || \trim($name) !== $name;
@@ -44,9 +54,9 @@ final class ReadOnlyVariables implements Variables
             throw Exception\InvalidValue::create();
         }
 
-        $this->values = \array_filter($values, static function ($value): bool {
+        return new self(\array_filter($values, static function ($value): bool {
             return \is_string($value);
-        });
+        }));
     }
 
     public function has(string $name): bool
