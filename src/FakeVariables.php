@@ -15,6 +15,9 @@ namespace Ergebnis\Environment;
 
 final class FakeVariables implements Variables
 {
+    /**
+     * @var array<string, string>
+     */
     private $values = [];
 
     /**
