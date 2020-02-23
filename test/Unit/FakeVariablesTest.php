@@ -34,19 +34,26 @@ final class FakeVariablesTest extends Framework\TestCase
 
     private const NAME = 'FOO';
 
+    public function testEmptyReturnsEmptyVariables(): void
+    {
+        $variables = FakeVariables::empty();
+
+        self::assertSame([], $variables->toArray());
+    }
+
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidType()
      *
      * @param mixed $name
      */
-    public function testConstructorRejectsValuesWhenTheyHaveInvalidNames($name): void
+    public function testFromArrayRejectsValuesWhenTheyHaveInvalidNames($name): void
     {
         $value = self::faker()->sentence;
 
         $this->expectException(Exception\InvalidName::class);
 
-        new FakeVariables([
+        FakeVariables::fromArray([
             $name => $value,
         ]);
     }
@@ -57,11 +64,11 @@ final class FakeVariablesTest extends Framework\TestCase
      *
      * @param mixed $value
      */
-    public function testConstructorRejectsValuesWhenTheyHaveInvalidValues($value): void
+    public function testFromArrayRejectsValuesWhenTheyHaveInvalidValues($value): void
     {
         $this->expectException(Exception\InvalidValue::class);
 
-        new FakeVariables([
+        FakeVariables::fromArray([
             self::NAME => $value,
         ]);
     }
@@ -73,7 +80,7 @@ final class FakeVariablesTest extends Framework\TestCase
      */
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -82,14 +89,14 @@ final class FakeVariablesTest extends Framework\TestCase
 
     public function testHasReturnsFalseWhenEnvironmentVariableHasNotBeenInjected(): void
     {
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         self::assertFalse($variables->has(self::NAME));
     }
 
     public function testHasReturnsFalseWhenEnvironmentVariableHasBeenInjectedButValueIsFalse(): void
     {
-        $variables = new FakeVariables([
+        $variables = FakeVariables::fromArray([
             self::NAME => false,
         ]);
 
@@ -98,7 +105,7 @@ final class FakeVariablesTest extends Framework\TestCase
 
     public function testHasReturnsTrueWhenEnvironmentVariableHasBeenInjectedAndValueIsNotFalse(): void
     {
-        $variables = new FakeVariables([
+        $variables = FakeVariables::fromArray([
             self::NAME => self::faker()->sentence,
         ]);
 
@@ -112,7 +119,7 @@ final class FakeVariablesTest extends Framework\TestCase
      */
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -121,7 +128,7 @@ final class FakeVariablesTest extends Framework\TestCase
 
     public function testGetThrowsNotSetWhenEnvironmentVariableHasNotBeenInjected(): void
     {
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         $this->expectException(Exception\NotSet::class);
 
@@ -130,7 +137,7 @@ final class FakeVariablesTest extends Framework\TestCase
 
     public function testGetThrowsNotSetWhenEnvironmentVariableHasBeenInjectedButValueIsFalse(): void
     {
-        $variables = new FakeVariables([
+        $variables = FakeVariables::fromArray([
             self::NAME => false,
         ]);
 
@@ -143,7 +150,7 @@ final class FakeVariablesTest extends Framework\TestCase
     {
         $value = self::faker()->sentence;
 
-        $variables = new FakeVariables([
+        $variables = FakeVariables::fromArray([
             self::NAME => $value,
         ]);
 
@@ -159,7 +166,7 @@ final class FakeVariablesTest extends Framework\TestCase
     {
         $value = self::faker()->sentence;
 
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -173,7 +180,7 @@ final class FakeVariablesTest extends Framework\TestCase
     {
         $value = self::faker()->sentence;
 
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         $variables->set(
             self::NAME,
@@ -190,7 +197,7 @@ final class FakeVariablesTest extends Framework\TestCase
      */
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $variables = new FakeVariables();
+        $variables = FakeVariables::empty();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -201,7 +208,7 @@ final class FakeVariablesTest extends Framework\TestCase
     {
         $value = self::faker()->sentence;
 
-        $variables = new FakeVariables([
+        $variables = FakeVariables::fromArray([
             self::NAME => $value,
         ]);
 
@@ -218,7 +225,7 @@ final class FakeVariablesTest extends Framework\TestCase
             'BAZ' => 'aha',
         ];
 
-        $variables = new FakeVariables($values);
+        $variables = FakeVariables::fromArray($values);
 
         self::assertSame($values, $variables->toArray());
     }
@@ -231,7 +238,7 @@ final class FakeVariablesTest extends Framework\TestCase
             'BAZ' => 'aha',
         ];
 
-        $variables = new FakeVariables($values);
+        $variables = FakeVariables::fromArray($values);
 
         $variables->set(
             'FOO',
@@ -255,7 +262,7 @@ final class FakeVariablesTest extends Framework\TestCase
             'BAZ' => 'aha',
         ];
 
-        $variables = new FakeVariables($values);
+        $variables = FakeVariables::fromArray($values);
 
         $variables->unset('FOO');
 
