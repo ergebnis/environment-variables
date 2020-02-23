@@ -144,4 +144,9 @@ final class TestVariables implements Variables
             }
         }
     }
+
+    public function toArray(): array
+    {
+        return $this->systemVariables->toArray();
+    }
 }

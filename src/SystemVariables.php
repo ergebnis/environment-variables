@@ -68,4 +68,9 @@ final class SystemVariables implements Variables
             throw Exception\CouldNotUnset::name($name);
         }
     }
+
+    public function toArray(): array
+    {
+        return \getenv();
+    }
 }

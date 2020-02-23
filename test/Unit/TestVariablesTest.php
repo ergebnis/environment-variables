@@ -272,4 +272,35 @@ final class TestVariablesTest extends Framework\TestCase
         self::assertSame('ah', \getenv('BAR'));
         self::assertSame('oops', \getenv('BAZ'));
     }
+
+    public function testToArrayReturnsCurrentValues(): void
+    {
+        $variables = TestVariables::backup();
+
+        self::assertSame(\getenv(), $variables->toArray());
+    }
+
+    public function testToArrayReturnsValuesWhenValueHasBeenSet(): void
+    {
+        $value = self::faker()->sentence;
+
+        \putenv(\sprintf(
+            '%s=%s',
+            self::NAME,
+            $value
+        ));
+
+        $variables = TestVariables::backup();
+
+        self::assertSame(\getenv(), $variables->toArray());
+    }
+
+    public function testToArrayReturnsValuesWhenValueHasBeenUnset(): void
+    {
+        \putenv(self::NAME);
+
+        $variables = TestVariables::backup();
+
+        self::assertSame(\getenv(), $variables->toArray());
+    }
 }

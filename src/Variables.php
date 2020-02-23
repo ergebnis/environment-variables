@@ -48,4 +48,9 @@ interface Variables
      * @throws Exception\InvalidName
      */
     public function unset(string $name): void;
+
+    /**
+     * @return array<string, string>
+     */
+    public function toArray(): array;
 }
