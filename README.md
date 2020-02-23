@@ -84,7 +84,7 @@ final class BuildEnvironmentTest extends Framework\TestCase
 {
     public function testIsGitHubActionsReturnsFalseWhenNoneOfTheExpectedEnvironmentVariablesAreAvailable(): void
     {
-        $environmentVariables = new Environment\FakeVariables();
+        $environmentVariables = Environment\FakeVariables::empty();
 
         $buildEnvironment = new BuildEnvironment($environmentVariables);
 
@@ -93,7 +93,7 @@ final class BuildEnvironmentTest extends Framework\TestCase
 
     public function testIsGitHubActionsReturnsFalseWhenValueOfGitHubActionsEnvironmentVariableIsNotTrue(): void
     {
-        $environmentVariables = new Environment\FakeVariables([
+        $environmentVariables = Environment\FakeVariables::fromArray([
             'GITHUB_ACTIONS' => 'false',
         ]);
 
@@ -104,7 +104,7 @@ final class BuildEnvironmentTest extends Framework\TestCase
 
     public function testIsGitHubActionsReturnsTrueWhenValueOfGitHubActionsEnvironmentVariableIsTrue(): void
     {
-        $environmentVariables = new Environment\FakeVariables([
+        $environmentVariables = Environment\FakeVariables::fromArray([
             'GITHUB_ACTIONS' => 'true',
         ]);
 
