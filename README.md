@@ -173,7 +173,7 @@ If your tests depend on environment variables, you have the following challenges
 - when you modify environment variables in a test, you want to restore environment variables that have existed before the test run to their original values
 - when you modify environment variables in a test that has not been backed up before, and forget to restore it, it might affect other tests
 
-To solve this problem, you can use [`Ergebnis\Environment\TestVariables`](src/TestVariables.php):
+To solve this problem, you can add the [`@backupGlobals`](https://phpunit.readthedocs.io/en/9.0/annotations.html#backupglobals) annotation to your test cases when using [`phpunit/phpunit`](https://github.com/sebastianbergmann/phpunit), or use [`Ergebnis\Environment\TestVariables`](src/TestVariables.php):
 
 ```php
 <?php
