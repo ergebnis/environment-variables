@@ -51,7 +51,7 @@ final class SystemVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      *
      * @param string $name
      */
@@ -85,7 +85,7 @@ final class SystemVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      *
      * @param string $name
      */
@@ -121,7 +121,7 @@ final class SystemVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      *
      * @param string $name
      */
@@ -154,7 +154,7 @@ final class SystemVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      *
      * @param string $name
      */

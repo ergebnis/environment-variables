@@ -21,6 +21,58 @@ $ composer require ergebnis/environment-variables
 
 ## Usage
 
+This package provides the interface [`Ergebnis\Environment\Variables`](src/Variables.php) along with the following implementations:
+
+- [`Ergebnis\Environment\FakeVariables`](#ergebnisenvironmentfakevariables)
+- [`Ergebnis\Environment\SystemVariables`](#ergebnisenvironmentsystemvariables)
+
+### `Ergebnis\Environment\FakeVariables`
+
+If you want to read, set, and unset environment variables in an object-oriented way in a test environment, but do not actually want to modify system environment variables, you can use [`Ergebnis\Environment\FakeVariables`](src/FakeVariables.php) as a test-double:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Ergebnis\Environment;
+use PHPUnit\Framework;
+
+final class BuildEnvironmentTest extends Framework\TestCase
+{
+    public function testIsGitHubActionsReturnsFalseWhenNoneOfTheExpectedEnvironmentVariablesAreAvailable(): void
+    {
+        $environmentVariables = new Environment\FakeVariables();
+
+        $buildEnvironment = new BuildEnvironment($environmentVariables);
+
+        self::assertFalse($buildEnvironment->isGitHubActions());
+    }
+
+    public function testIsGitHubActionsReturnsFalseWhenValueOfGitHubActionsEnvironmentVariableIsNotTrue(): void
+    {
+        $environmentVariables = new Environment\FakeVariables([
+            'GITHUB_ACTIONS' => 'false',
+        ]);
+
+        $buildEnvironment = new BuildEnvironment($environmentVariables);
+
+        self::assertFalse($buildEnvironment->isGitHubActions());
+    }
+
+    public function testIsGitHubActionsReturnsTrueWhenValueOfGitHubActionsEnvironmentVariableIsTrue(): void
+    {
+        $environmentVariables = new Environment\FakeVariables([
+            'GITHUB_ACTIONS' => 'true',
+        ]);
+
+        $buildEnvironment = new BuildEnvironment($environmentVariables);
+
+        self::assertTrue($buildEnvironment->isGitHubActions());
+    }
+}
+```
+
 ### `Ergebnis\Environment\SystemVariables`
 
 If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\SystemVariables`](src/SystemVariables.php):
@@ -36,7 +88,7 @@ final class BuildEnvironment
 {
     private $environmentVariables;
 
-    public function __construct(Environment\SystemVariables $environmentVariables)
+    public function __construct(Environment\Variables $environmentVariables)
     {
         $this->environmentVariables = $environmentVariables;
     }

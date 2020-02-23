@@ -15,23 +15,31 @@ namespace Ergebnis\Environment\Test\DataProvider;
 
 use Ergebnis\Test\Util\Helper;
 
-final class Name
+final class Value
 {
     use Helper;
 
     /**
-     * @return \Generator<string, array<int>>
+     * @return \Generator<string, array<int, null|array|float|int|resource|\stdClass|true>>
      */
     public static function invalidType(): \Generator
     {
         $faker = self::faker();
 
+        /** @var resource $resource */
+        $resource = \fopen(__FILE__, 'rb');
+
         $values = [
-            'int-greater-than-one' => $faker->numberBetween(2),
-            'int-less-than-minus-one' => -1 * $faker->numberBetween(2),
-            'int-minus-one' => -1,
-            'int-one' => 1,
-            'int-zero' => 0,
+            'array' => [
+                $faker->word,
+                $faker->word,
+                $faker->word,
+            ],
+            'float' => $faker->randomFloat(),
+            'int' => $faker->numberBetween(2),
+            'null' => null,
+            'object' => new \stdClass(),
+            'resource' => $resource,
         ];
 
         foreach ($values as $key => $value) {
@@ -42,17 +50,12 @@ final class Name
     }
 
     /**
-     * @return \Generator<string, array<string>>
+     * @return \Generator<string, array<null|int|object|true>>
      */
     public static function invalidValue(): \Generator
     {
         $values = [
-            'string-blank' => ' ',
-            'string-empty' => '',
-            'string-untrimmed' => \sprintf(
-                ' %s ',
-                self::faker()->sentence
-            ),
+            'bool-true' => true,
         ];
 
         foreach ($values as $key => $value) {
