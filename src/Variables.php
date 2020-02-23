@@ -37,6 +37,7 @@ interface Variables
      * @param string $name
      * @param string $value
      *
+     * @throws Exception\CouldNotSet
      * @throws Exception\InvalidName
      */
     public function set(string $name, string $value): void;
