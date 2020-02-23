@@ -39,12 +39,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Ergebnis\\Environment\\Variables\\": "src/"
+      "Ergebnis\\Environment\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Ergebnis\\Environment\\Variables\\Test\\": "test/"
+      "Ergebnis\\Environment\\Test\\": "test/"
     }
   },
   "support": {

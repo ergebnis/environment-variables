@@ -11,16 +11,16 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Test\Unit\Exception;
+namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Variables\Exception\NotBackedUp;
+use Ergebnis\Environment\Exception\NotBackedUp;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
  * @internal
  *
- * @covers \Ergebnis\Environment\Variables\Exception\NotBackedUp
+ * @covers \Ergebnis\Environment\Exception\NotBackedUp
  */
 final class NotBackedUpTest extends Framework\TestCase
 {

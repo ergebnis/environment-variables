@@ -11,9 +11,9 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables;
+namespace Ergebnis\Environment;
 
-final class Production implements Variables
+final class SystemVariables implements Variables
 {
     public function has(string $name): bool
     {

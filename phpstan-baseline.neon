@@ -16,12 +16,12 @@ parameters:
 			path: src/Test.php
 
 		-
-			message: "#^Parameter \\#1 \\$values of method Ergebnis\\\\Environment\\\\Variables\\\\Test\\:\\:set\\(\\) expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$values of method Ergebnis\\\\Environment\\\\Test\\:\\:set\\(\\) expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
 			count: 1
 			path: test/Unit/TestTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$values of method Ergebnis\\\\Environment\\\\Variables\\\\Test\\:\\:set\\(\\) expects array\\<string, string\\|false\\>, array\\<string, array\\|int\\|stdClass\\|true\\|null\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$values of method Ergebnis\\\\Environment\\\\Test\\:\\:set\\(\\) expects array\\<string, string\\|false\\>, array\\<string, array\\|int\\|stdClass\\|true\\|null\\> given\\.$#"
 			count: 1
 			path: test/Unit/TestTest.php
 

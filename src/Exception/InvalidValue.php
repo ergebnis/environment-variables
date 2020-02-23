@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Exception;
+namespace Ergebnis\Environment\Exception;
 
 final class InvalidValue extends \InvalidArgumentException implements Exception
 {

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @see https://github.com/ergebnis/environment-variables
  */
 
-namespace Ergebnis\Environment\Variables\Test\DataProvider;
+namespace Ergebnis\Environment\Test\DataProvider;
 
 use Ergebnis\Test\Util\Helper;
 
