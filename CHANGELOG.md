@@ -23,6 +23,7 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 * Started throwing `Ergebnis\Environment\Exception\CouldNotSet` when a system environment variable could not be set ([#14]), by [@localheinz]
 * Started throwing `Ergebnis\Environment\Exception\CouldNotUnset` when a system environment variable could not be unset ([#15]), by [@localheinz]
 * Started throwing `Ergebnis\Environment\Exception\NotSet` when attempting to retrieve the value of an environment variable that is not set ([#16]), by [@localheinz]
+* Adjusted `Ergebnis\Environment\TestVariables` so it implements the `Ergebnis\Environment\Variables` interface as well ([#17]), by [@localheinz]
 
 [c0c63bb...master]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...master
 
@@ -36,5 +37,6 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 [#14]: https://github.com/ergebnis/environment-variables/pull/14
 [#15]: https://github.com/ergebnis/environment-variables/pull/15
 [#16]: https://github.com/ergebnis/environment-variables/pull/16
+[#17]: https://github.com/ergebnis/environment-variables/pull/17
 
 [@localheinz]: https://github.com/localheinz

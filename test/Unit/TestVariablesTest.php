@@ -26,10 +26,14 @@ use PHPUnit\Framework;
  * @uses \Ergebnis\Environment\Exception\InvalidName
  * @uses \Ergebnis\Environment\Exception\InvalidValue
  * @uses \Ergebnis\Environment\Exception\NotBackedUp
+ * @uses \Ergebnis\Environment\Exception\NotSet
+ * @uses \Ergebnis\Environment\SystemVariables
  */
 final class TestVariablesTest extends Framework\TestCase
 {
     use Helper;
+
+    private const NAME = 'QUX';
 
     /**
      * @var array<string, false|string>
@@ -67,6 +71,165 @@ final class TestVariablesTest extends Framework\TestCase
                 $value
             ));
         }
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
+     *
+     * @param string $name
+     */
+    public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
+    {
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\InvalidName::class);
+
+        $variables->has($name);
+    }
+
+    public function testHasReturnsFalseWhenEnvironmentVariableIsNotSet(): void
+    {
+        $variables = TestVariables::backup();
+
+        self::assertFalse($variables->has(self::NAME));
+    }
+
+    public function testHasReturnsTrueWhenEnvironmentVariableIsSet(): void
+    {
+        \putenv(\sprintf(
+            '%s=%s',
+            self::NAME,
+            self::faker()->sentence
+        ));
+
+        $variables = TestVariables::backup();
+
+        self::assertTrue($variables->has(self::NAME));
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
+     *
+     * @param string $name
+     */
+    public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
+    {
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\InvalidName::class);
+
+        $variables->get($name);
+    }
+
+    public function testGetThrowsNotSetFalseWhenEnvironmentVariableIsNotSet(): void
+    {
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\NotSet::class);
+
+        $variables->get(self::NAME);
+    }
+
+    public function testGetReturnsValueWhenEnvironmentVariableIsSet(): void
+    {
+        $value = self::faker()->sentence;
+
+        \putenv(\sprintf(
+            '%s=%s',
+            self::NAME,
+            $value
+        ));
+
+        $variables = TestVariables::backup();
+
+        self::assertSame($value, $variables->get(self::NAME));
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
+     *
+     * @param string $name
+     */
+    public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
+    {
+        $value = self::faker()->sentence;
+
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\InvalidName::class);
+
+        $variables->set(
+            $name,
+            $value
+        );
+    }
+
+    public function testSetThrowsNotBackedUpWhenVariableHasNotBeenBackedUp(): void
+    {
+        $value = self::faker()->sentence;
+
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\NotBackedUp::class);
+
+        $variables->set(
+            self::NAME,
+            $value
+        );
+    }
+
+    public function testSetSetsValueWhenItHasBeenBackedUp(): void
+    {
+        $value = self::faker()->sentence;
+
+        $variables = TestVariables::backup(self::NAME);
+
+        $variables->set(
+            self::NAME,
+            $value
+        );
+
+        self::assertSame($value, \getenv(self::NAME));
+    }
+
+    /**
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
+     *
+     * @param string $name
+     */
+    public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
+    {
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\InvalidName::class);
+
+        $variables->unset($name);
+    }
+
+    public function testUnsetThrowsNotBackedUpWhenVariableHasNotBeenBackedUp(): void
+    {
+        $variables = TestVariables::backup();
+
+        $this->expectException(Exception\NotBackedUp::class);
+
+        $variables->unset(self::NAME);
+    }
+
+    public function testUnsetUnsetsVariableWhenVariableHasBeenBackedUp(): void
+    {
+        $value = self::faker()->sentence;
+
+        \putenv(\sprintf(
+            '%s=%s',
+            self::NAME,
+            $value
+        ));
+
+        $variables = TestVariables::backup(self::NAME);
+
+        $variables->unset(self::NAME);
+
+        self::assertFalse(\getenv(self::NAME));
     }
 
     public function testEnvironmentVariablesCanBeBackedUpAndRestored(): void
@@ -108,112 +271,5 @@ final class TestVariablesTest extends Framework\TestCase
         self::assertSame('hmm', \getenv('FOO'));
         self::assertSame('ah', \getenv('BAR'));
         self::assertSame('oops', \getenv('BAZ'));
-    }
-
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidType()
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param int|string $name
-     */
-    public function testSetRejectsValuesWhenTheyHaveInvalidNames($name): void
-    {
-        \putenv('FOO=hmm');
-        \putenv('BAR=ah');
-
-        $environmentVariables = TestVariables::backup(
-            'FOO',
-            'BAR'
-        );
-
-        $value = self::faker()->sentence;
-
-        $this->expectException(Exception\InvalidName::class);
-
-        $environmentVariables->set([
-            $name => $value,
-        ]);
-    }
-
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidType()
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidValue()
-     *
-     * @param mixed $value
-     */
-    public function testSetRejectsValyuesWhenTheyHaveInvalidValues($value): void
-    {
-        \putenv('FOO=hmm');
-        \putenv('BAR=ah');
-
-        $environmentVariables = TestVariables::backup(
-            'FOO',
-            'BAR'
-        );
-
-        try {
-            $environmentVariables->set([
-                'BAR' => $value,
-            ]);
-        } catch (Exception\InvalidValue $exception) {
-            self::assertSame('hmm', \getenv('FOO'));
-            self::assertSame('ah', \getenv('BAR'));
-
-            return;
-        }
-
-        self::fail('Failed asserting that environment variables can not be set when they have an invalid value.');
-    }
-
-    public function testEnvironmentVariablesCanNotBeSetWhenTheyHaveNotBeenBackedUp(): void
-    {
-        \putenv('FOO=hmm');
-        \putenv('BAR=ah');
-
-        $environmentVariables = TestVariables::backup(
-            'FOO',
-            'BAR'
-        );
-
-        try {
-            $environmentVariables->set([
-                'FOO' => 'ok',
-                'BAR' => false,
-                'BAZ' => 'oh no',
-                'QUX' => 'haha',
-            ]);
-        } catch (Exception\NotBackedUp $exception) {
-            self::assertSame('The environment variables "BAZ", "QUX" have not been backed up. Are you sure you want to modify them?', $exception->getMessage());
-            self::assertSame('hmm', \getenv('FOO'));
-            self::assertSame('ah', \getenv('BAR'));
-            self::assertFalse(\getenv('BAZ'));
-
-            return;
-        }
-
-        self::fail('Failed asserting that environment variables can not be modified when they have not been backed before.');
-    }
-
-    public function testEnvironmentVariablesCanBeBackedUpAndSet(): void
-    {
-        \putenv('FOO=hmm');
-        \putenv('BAR=ah');
-        \putenv('BAZ=oho');
-
-        $environmentVariables = TestVariables::backup(
-            'FOO',
-            'BAR',
-            'BAZ'
-        );
-
-        $environmentVariables->set([
-            'FOO' => 'ok',
-            'BAR' => false,
-            'BAZ' => ' well, then ',
-        ]);
-
-        self::assertSame('ok', \getenv('FOO'));
-        self::assertFalse(\getenv('BAR'));
-        self::assertSame(' well, then ', \getenv('BAZ'));
     }
 }
