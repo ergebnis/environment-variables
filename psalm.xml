@@ -7,11 +7,8 @@
     errorBaseline="psalm-baseline.xml"
     errorLevel="1"
     resolveFromConfigFile="true"
+    totallyTyped="true"
 >
-    <issueHandlers>
-        <LessSpecificReturnType errorLevel="info" />
-    </issueHandlers>
-
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
     </plugins>
