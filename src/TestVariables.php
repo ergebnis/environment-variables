@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment;
 
-final class Test
+final class TestVariables
 {
     private $values;
 

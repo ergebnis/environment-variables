@@ -15,7 +15,7 @@ namespace Ergebnis\Environment\Test\Unit;
 
 use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\SystemVariables;
-use Ergebnis\Environment\Test;
+use Ergebnis\Environment\TestVariables;
 use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
@@ -25,7 +25,7 @@ use PHPUnit\Framework;
  * @covers \Ergebnis\Environment\SystemVariables
  *
  * @uses \Ergebnis\Environment\Exception\InvalidName
- * @uses \Ergebnis\Environment\Test
+ * @uses \Ergebnis\Environment\TestVariables
  */
 final class SystemVariablesTest extends Framework\TestCase
 {
@@ -34,13 +34,13 @@ final class SystemVariablesTest extends Framework\TestCase
     private const NAME = 'FOO';
 
     /**
-     * @var Test
+     * @var TestVariables
      */
     private static $environmentVariables;
 
     protected function setUp(): void
     {
-        self::$environmentVariables = Test::backup(self::NAME);
+        self::$environmentVariables = TestVariables::backup(self::NAME);
 
         \putenv(self::NAME);
     }
