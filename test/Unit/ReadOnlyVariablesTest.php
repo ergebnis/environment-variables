@@ -25,6 +25,7 @@ use PHPUnit\Framework;
  *
  * @uses \Ergebnis\Environment\Exception\InvalidName
  * @uses \Ergebnis\Environment\Exception\InvalidValue
+ * @uses \Ergebnis\Environment\Exception\NotSet
  * @uses \Ergebnis\Environment\Exception\ShouldNotBeUsed
  * @uses \Ergebnis\Environment\TestVariables
  */
@@ -119,20 +120,24 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
         $variables->get($name);
     }
 
-    public function testGetReturnsFalseWhenEnvironmentVariableHasNotBeenInjected(): void
+    public function testGetThrowsNotSetWhenEnvironmentVariableHasNotBeenInjected(): void
     {
         $variables = new ReadOnlyVariables();
 
-        self::assertFalse($variables->get(self::NAME));
+        $this->expectException(Exception\NotSet::class);
+
+        $variables->get(self::NAME);
     }
 
-    public function testGetReturnsFalseWhenEnvironmentVariableHasBeenInjectedButValueIsFalse(): void
+    public function testGetThrowsNotSetWhenEnvironmentVariableHasBeenInjectedButValueIsFalse(): void
     {
         $variables = new ReadOnlyVariables([
             self::NAME => false,
         ]);
 
-        self::assertFalse($variables->get(self::NAME));
+        $this->expectException(Exception\NotSet::class);
+
+        $variables->get(self::NAME);
     }
 
     public function testGetReturnsValueWhenEnvironmentVariableHasBeenInjectedAndValueIsNotFalse(): void

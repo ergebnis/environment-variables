@@ -24,13 +24,19 @@ final class SystemVariables implements Variables
         return false !== \getenv($name);
     }
 
-    public function get(string $name)
+    public function get(string $name): string
     {
         if ('' === $name || \trim($name) !== $name) {
             throw Exception\InvalidName::create();
         }
 
-        return \getenv($name);
+        $value = \getenv($name);
+
+        if (!\is_string($value)) {
+            throw Exception\NotSet::name($name);
+        }
+
+        return $value;
     }
 
     public function set(string $name, string $value): void

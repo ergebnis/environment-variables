@@ -58,14 +58,14 @@ final class FakeVariables implements Variables
         return \array_key_exists($name, $this->values);
     }
 
-    public function get(string $name)
+    public function get(string $name): string
     {
         if ('' === $name || \trim($name) !== $name) {
             throw Exception\InvalidName::create();
         }
 
         if (!\array_key_exists($name, $this->values)) {
-            return false;
+            throw Exception\NotSet::name($name);
         }
 
         return $this->values[$name];

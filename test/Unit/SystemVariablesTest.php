@@ -25,6 +25,7 @@ use PHPUnit\Framework;
  * @covers \Ergebnis\Environment\SystemVariables
  *
  * @uses \Ergebnis\Environment\Exception\InvalidName
+ * @uses \Ergebnis\Environment\Exception\NotSet
  * @uses \Ergebnis\Environment\TestVariables
  */
 final class SystemVariablesTest extends Framework\TestCase
@@ -98,11 +99,13 @@ final class SystemVariablesTest extends Framework\TestCase
         $variables->get($name);
     }
 
-    public function testGetReturnsFalseWhenEnvironmentVariableIsNotSet(): void
+    public function testGetThrowsNotSetFalseWhenEnvironmentVariableIsNotSet(): void
     {
         $variables = new SystemVariables();
 
-        self::assertFalse($variables->get(self::NAME));
+        $this->expectException(Exception\NotSet::class);
+
+        $variables->get(self::NAME);
     }
 
     public function testGetReturnsValueWhenEnvironmentVariableIsSet(): void
