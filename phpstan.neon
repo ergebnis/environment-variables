@@ -5,6 +5,7 @@ parameters:
 	checkMissingIterableValueType: false
 	ergebnis:
 		classesAllowedToBeExtended:
+			- BadMethodCallException
 			- InvalidArgumentException
 	inferPrivatePropertyTypeFromConstructor: true
 	level: max

@@ -13,6 +13,7 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 * Added `Test`, which allows backing up, restoring, and safely modifying environment variables in test environments ([#1]), by [@localheinz]
 * Added `Production`, which allows reading, setting, and unsetting environment variables in production environments ([#2]), by [@localheinz]
 * Added `FakeVariables`, which can be used as a fake implementation of `Variables` in test environments ([#7]), by [@localheinz]
+* Added `ReadOnlyVariables`, which can be used as a mock implementation of `Variables` in test environments ([#8]), by [@localheinz]
 
 ### Changed
 
@@ -26,5 +27,6 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 [#5]: https://github.com/ergebnis/environment-variables/pull/5
 [#6]: https://github.com/ergebnis/environment-variables/pull/6
 [#7]: https://github.com/ergebnis/environment-variables/pull/7
+[#8]: https://github.com/ergebnis/environment-variables/pull/8
 
 [@localheinz]: https://github.com/localheinz
