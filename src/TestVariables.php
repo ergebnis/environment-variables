@@ -18,7 +18,7 @@ final class TestVariables
     private $values;
 
     /**
-     * @param array<string, false|string> $values
+     * @param array<string, string> $values
      */
     private function __construct(array $values)
     {
@@ -27,7 +27,7 @@ final class TestVariables
 
     public static function backup(string ...$names): self
     {
-        /** @var array<string, false|string> $values */
+        /** @var array<string, string> $values */
         $values = \array_intersect_key(
             \getenv(),
             \array_flip($names)
