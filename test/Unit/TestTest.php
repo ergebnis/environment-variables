@@ -111,12 +111,12 @@ final class TestTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider provideInvalidName
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalid()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidType()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      *
      * @param int|string $name
      */
-    public function testEnvironmentVariablesCanNotBeSetWhenTheyHaveInvalidNames($name): void
+    public function testSetRejectsValuesWhenTheyHaveInvalidNames($name): void
     {
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
@@ -135,31 +135,13 @@ final class TestTest extends Framework\TestCase
         ]);
     }
 
-    public function provideInvalidName(): \Generator
-    {
-        $faker = self::faker();
-
-        $values = [
-            'int-greater-than-one' => $faker->numberBetween(2),
-            'int-less-than-minus-one' => -1 * $faker->numberBetween(2),
-            'int-minus-one' => -1,
-            'int-one' => 1,
-            'int-zero' => 0,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
-    }
-
     /**
-     * @dataProvider provideInvalidValue
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidType()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidValue()
      *
-     * @param null|array|int|\stdClass|true $value
+     * @param mixed $value
      */
-    public function testEnvironmentVariablesCanNotBeSetWhenTheyHaveInvalidValues($value): void
+    public function testSetRejectsValyuesWhenTheyHaveInvalidValues($value): void
     {
         \putenv('FOO=hmm');
         \putenv('BAR=ah');
@@ -181,27 +163,6 @@ final class TestTest extends Framework\TestCase
         }
 
         self::fail('Failed asserting that environment variables can not be set when they have an invalid value.');
-    }
-
-    public function provideInvalidValue(): \Generator
-    {
-        $faker = self::faker();
-
-        $values = [
-            'int-greater-than-one' => $faker->numberBetween(2),
-            'int-less-than-minus-one' => -1 * $faker->numberBetween(2),
-            'int-minus-one' => -1,
-            'int-one' => 1,
-            'int-zero' => 0,
-            'null' => null,
-            'bool-true' => true,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
     }
 
     public function testEnvironmentVariablesCanNotBeSetWhenTheyHaveNotBeenBackedUp(): void
