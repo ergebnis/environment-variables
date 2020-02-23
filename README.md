@@ -21,12 +21,57 @@ $ composer require ergebnis/environment-variables
 
 ## Usage
 
-This package provides the interface [`Ergebnis\Environment\Variables`](src/Variables.php) along with the following implementations:
+This package provides the interface [`Ergebnis\Environment\Variables`](src/Variables.php) along with the following production implementations:
 
-- [`Ergebnis\Environment\FakeVariables`](#ergebnisenvironmentfakevariables)
 - [`Ergebnis\Environment\SystemVariables`](#ergebnisenvironmentsystemvariables)
 
-### `Ergebnis\Environment\FakeVariables`
+This package also provides the following test implementations:
+
+- [`Ergebnis\Environment\FakeVariables`](#ergebnisenvironmentfakevariables)
+- [`Ergebnis\Environment\ReadOnlyVariables`](#ergebnisenvironmentreadonlyvariables)
+
+This package also provides a helper when you actually need to backup, modify, and restore environment variables in tests:
+
+- [`Ergebnis\Environment\Test`](#ergebnisenvironmenttest)
+
+### Production Implementation
+
+#### `Ergebnis\Environment\SystemVariables`
+
+If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\SystemVariables`](src/SystemVariables.php):
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Ergebnis\Environment;
+
+final class BuildEnvironment
+{
+    private $environmentVariables;
+
+    public function __construct(Environment\Variables $environmentVariables)
+    {
+        $this->environmentVariables = $environmentVariables;
+    }
+
+    public function isGitHubActions(): bool
+    {
+        return $this->environmentVariables->has('GITHUB_ACTIONS')
+            && 'true' === $this->environmentVariables->get('GITHUB_ACTIONS');
+    }
+
+    public function isTravisCi(): bool
+    {
+        return $this->environmentVariables->has('TRAVIS')
+            && 'true' === $this->environmentVariables->get('TRAVIS');
+    }
+}
+```
+### Test Implementation
+
+#### `Ergebnis\Environment\FakeVariables`
 
 If you want to read, set, and unset environment variables in an object-oriented way in a test environment, but do not actually want to modify system environment variables, you can use [`Ergebnis\Environment\FakeVariables`](src/FakeVariables.php) as a test-double:
 
@@ -72,10 +117,9 @@ final class BuildEnvironmentTest extends Framework\TestCase
     }
 }
 ```
+#### `Ergebnis\Environment\ReadOnlyVariables`
 
-### `Ergebnis\Environment\SystemVariables`
-
-If you want to read, set, and unset environment variables in an object-oriented way in a production environment, you can use [`Ergebnis\Environment\SystemVariables`](src/SystemVariables.php):
+If you want to read environment variables in an object-oriented way in a test environment, but neither actually want to modify system environment variables, nor allow modification by the system under test, you can use [`Ergebnis\Environment\ReadOnlyVariables`](src/ReadOnlyVariables.php) as a test-double:
 
 ```php
 <?php
@@ -83,31 +127,51 @@ If you want to read, set, and unset environment variables in an object-oriented 
 declare(strict_types=1);
 
 use Ergebnis\Environment;
+use PHPUnit\Framework;
 
-final class BuildEnvironment
+final class BuildEnvironmentTest extends Framework\TestCase
 {
-    private $environmentVariables;
-
-    public function __construct(Environment\Variables $environmentVariables)
+    public function testIsGitHubActionsReturnsFalseWhenNoneOfTheExpectedEnvironmentVariablesAreAvailable(): void
     {
-        $this->environmentVariables = $environmentVariables;
+        $environmentVariables = new Environment\ReadOnlyVariables();
+
+        $buildEnvironment = new BuildEnvironment($environmentVariables);
+
+        self::assertFalse($buildEnvironment->isGitHubActions());
     }
 
-    public function isGitHubActions(): bool
+    public function testIsGitHubActionsReturnsFalseWhenValueOfGitHubActionsEnvironmentVariableIsNotTrue(): void
     {
-        return $this->environmentVariables->has('GITHUB_ACTIONS')
-            && 'true' === $this->environmentVariables->get('GITHUB_ACTIONS');
+        $environmentVariables = new Environment\ReadOnlyVariables([
+            'GITHUB_ACTIONS' => 'false',
+        ]);
+
+        $buildEnvironment = new BuildEnvironment($environmentVariables);
+
+        self::assertFalse($buildEnvironment->isGitHubActions());
     }
 
-    public function isTravisCi(): bool
+    public function testIsGitHubActionsReturnsTrueWhenValueOfGitHubActionsEnvironmentVariableIsTrue(): void
     {
-        return $this->environmentVariables->has('TRAVIS')
-            && 'true' === $this->environmentVariables->get('TRAVIS');
+        $environmentVariables = new Environment\ReadOnlyVariables([
+            'GITHUB_ACTIONS' => 'true',
+        ]);
+
+        $buildEnvironment = new BuildEnvironment($environmentVariables);
+
+        self::assertTrue($buildEnvironment->isGitHubActions());
     }
 }
 ```
 
-### `Ergebnis\Environment\Test`
+:bulb: The `ReadOnlyVariables` implementation will throw a [`ShouldNotBeUsed`](src/Exception/ShouldNotBeUsed.php) exception when the system under tests uses any of the following methods:
+
+- `set()`
+- `unset()`
+
+### Test Utility
+
+#### `Ergebnis\Environment\Test`
 
 If your tests depend on environment variables, you have the following challenges:
 

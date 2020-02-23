@@ -21,6 +21,26 @@ parameters:
 			path: src/FakeVariables.php
 
 		-
+			message: "#^Constructor in Ergebnis\\\\Environment\\\\ReadOnlyVariables has parameter \\$values with default value\\.$#"
+			count: 1
+			path: src/ReadOnlyVariables.php
+
+		-
+			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: src/ReadOnlyVariables.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: src/ReadOnlyVariables.php
+
+		-
+			message: "#^Strict comparison using \\!\\=\\= between false and false will always evaluate to false\\.$#"
+			count: 1
+			path: src/ReadOnlyVariables.php
+
+		-
 			message: "#^Call to function is_string\\(\\) with string will always evaluate to true\\.$#"
 			count: 1
 			path: src/Test.php
@@ -39,6 +59,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$values of class Ergebnis\\\\Environment\\\\FakeVariables constructor expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
 			count: 1
 			path: test/Unit/FakeVariablesTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$values of class Ergebnis\\\\Environment\\\\ReadOnlyVariables constructor expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
+			count: 1
+			path: test/Unit/ReadOnlyVariablesTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$values of method Ergebnis\\\\Environment\\\\Test\\:\\:set\\(\\) expects array\\<string, string\\|false\\>, array\\<int\\|string, string\\> given\\.$#"
