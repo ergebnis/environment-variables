@@ -1,7 +1,9 @@
 # environment-variables
 
-[![Continuous Deployment](https://github.com/ergebnis/environment-variables/workflows/Continuous%20Deployment/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
-[![Continuous Integration](https://github.com/ergebnis/environment-variables/workflows/Continuous%20Integration/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
+[![Integrate](https://github.com/ergebnis/environment-variables/workflows/Integrate/badge.svg?branch=master)](https://github.com/ergebnis/environment-variables/actions)
+[![Prune](https://github.com/ergebnis/environment-variables/workflows/Prune/badge.svg?branch=master)](https://github.com/ergebnis/environment-variables/actions)
+[![Release](https://github.com/ergebnis/environment-variables/workflows/Release/badge.svg?branch=master)](https://github.com/ergebnis/environment-variables/actions)
+[![Renew](https://github.com/ergebnis/environment-variables/workflows/Renew/badge.svg?branch=master)](https://github.com/ergebnis/environment-variables/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/environment-variables/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/environment-variables)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/environment-variables/coverage.svg)](https://shepherd.dev/github/ergebnis/environment-variables)
