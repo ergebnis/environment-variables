@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`c0c63bb...master`][c0c63bb...master].
+For a full diff see [`c0c63bb...main`][c0c63bb...main].
 
 ### Added
 
@@ -28,7 +28,7 @@ For a full diff see [`c0c63bb...master`][c0c63bb...master].
 * Extracted named constructors `Ergebnis\Environment\FakeVariables::empty()` and `Ergebnis\Environment\FakeVariables::fromArray()` ([#19]), by [@localheinz]
 * Extracted named constructors `Ergebnis\Environment\ReadOnlyVariables::empty()` and `Ergebnis\Environment\ReadOnlyVariables::fromArray()` ([#20]), by [@localheinz]
 
-[c0c63bb...master]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...master
+[c0c63bb...main]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...main
 
 [#1]: https://github.com/ergebnis/environment-variables/pull/1
 [#2]: https://github.com/ergebnis/environment-variables/pull/2
