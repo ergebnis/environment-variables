@@ -1,7 +1,7 @@
 # https://github.com/probot/settings
 
 branches:
-  - name: "master"
+  - name: "main"
 
     # https://developer.github.com/v3/repos/branches/#remove-branch-protection
     # https://developer.github.com/v3/repos/branches/#update-branch-protection
@@ -14,20 +14,20 @@ branches:
         required_approving_review_count: 1
       required_status_checks:
         contexts:
+          - "Code Coverage (7.4, locked)"
           - "Coding Standards (7.2, locked)"
           - "Dependency Analysis (7.4, locked)"
-          - "Static Code Analysis (7.4, locked)"
-          - "Tests (7.2, lowest)"
-          - "Tests (7.2, locked)"
-          - "Tests (7.2, highest)"
-          - "Tests (7.3, lowest)"
-          - "Tests (7.3, locked)"
-          - "Tests (7.3, highest)"
-          - "Tests (7.4, lowest)"
-          - "Tests (7.4, locked)"
-          - "Tests (7.4, highest)"
-          - "Code Coverage (7.4, locked)"
           - "Mutation Tests (7.4, locked)"
+          - "Static Code Analysis (7.4, locked)"
+          - "Tests (7.2, highest)"
+          - "Tests (7.2, locked)"
+          - "Tests (7.2, lowest)"
+          - "Tests (7.3, highest)"
+          - "Tests (7.3, locked)"
+          - "Tests (7.3, lowest)"
+          - "Tests (7.4, highest)"
+          - "Tests (7.4, locked)"
+          - "Tests (7.4, lowest)"
         strict: false
       restrictions:
 
@@ -80,7 +80,7 @@ repository:
   allow_rebase_merge: false
   allow_squash_merge: false
   archived: false
-  default_branch: "master"
+  default_branch: "main"
   delete_branch_on_merge: true
   description: ":deciduous_tree: Provides an abstraction of environment variables."
   has_downloads: true
