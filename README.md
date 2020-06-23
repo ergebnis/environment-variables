@@ -17,7 +17,7 @@ Provides an abstraction of environment variables.
 
 Run
 
-```
+```sh
 $ composer require ergebnis/environment-variables
 ```
 
