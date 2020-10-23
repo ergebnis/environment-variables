@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.13.1@afd8874a9e4562eac42a02de90e42e430c3a1db1">
+<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
   <file src="src/FakeVariables.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="2">
+      <code>!\is_string($name)</code>
       <code>\is_string($name)</code>
     </DocblockTypeContradiction>
     <RedundantConditionGivenDocblockType occurrences="1">
-      <code>!\is_string($name) || '' === $name</code>
+      <code>\is_string($name)</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/ReadOnlyVariables.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="2">
+      <code>!\is_string($name)</code>
       <code>\is_string($name)</code>
     </DocblockTypeContradiction>
     <RedundantConditionGivenDocblockType occurrences="1">
-      <code>!\is_string($name) || '' === $name</code>
+      <code>\is_string($name)</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/TestVariables.php">
