@@ -76,8 +76,6 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param string $name
      */
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
@@ -115,8 +113,6 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param string $name
      */
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {

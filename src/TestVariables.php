@@ -21,7 +21,6 @@ final class TestVariables implements Variables
 
     /**
      * @param array<string, false|string> $backedUpVariables
-     * @param SystemVariables             $systemVariables
      */
     private function __construct(SystemVariables $systemVariables, array $backedUpVariables)
     {
