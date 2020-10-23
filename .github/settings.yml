@@ -91,6 +91,6 @@ repository:
   name: "environment-variables"
   private: false
 
-  # https://developer.github.com/v3/repos/branches/#remove-branch-protection
+  # https://docs.github.com/en/rest/reference/repos#replace-all-repository-topics
 
-  topics: "php, library, template"
+  topics: "environment, variables"
