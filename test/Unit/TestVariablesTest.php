@@ -75,8 +75,6 @@ final class TestVariablesTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param string $name
      */
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
@@ -109,8 +107,6 @@ final class TestVariablesTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param string $name
      */
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
@@ -147,8 +143,6 @@ final class TestVariablesTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param string $name
      */
     public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
@@ -194,8 +188,6 @@ final class TestVariablesTest extends Framework\TestCase
 
     /**
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
-     * @param string $name
      */
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
