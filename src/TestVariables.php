@@ -123,7 +123,7 @@ final class TestVariables implements Variables
     public function restore(): void
     {
         foreach ($this->backedUpVariables as $name => $value) {
-            if (false === $value) {
+            if (!\is_string($value)) {
                 try {
                     $this->systemVariables->unset($name);
                 } catch (Exception\CouldNotUnset $exception) {
