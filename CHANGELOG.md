@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.0.0...main`][1.0.0...main].
+For a full diff see [`1.1.0...main`][1.1.0...main].
+
+## [`1.1.0`][1.1.0]
+
+For a full diff see [`1.0.0...1.1.0`][1.0.0...1.1.0].
+
+### Added
+
+* Added support for PHP 8.0 ([#176]), by [@localheinz]
 
 ## [`1.0.0`][1.0.0]
 
@@ -35,7 +43,8 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [1.0.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/0.1.0
 
 [c0c63bb...1.0.0]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...1.0.0
-[1.0.0...main]: https://github.com/ergebnis/environment-variables/compare/1.0.0...main
+[1.0.0...1.1.0]: https://github.com/ergebnis/environment-variables/compare/1.0.0...1.1.0
+[1.1.0...main]: https://github.com/ergebnis/environment-variables/compare/1.1.0...main
 
 [#1]: https://github.com/ergebnis/environment-variables/pull/1
 [#2]: https://github.com/ergebnis/environment-variables/pull/2
@@ -51,5 +60,6 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [#18]: https://github.com/ergebnis/environment-variables/pull/18
 [#19]: https://github.com/ergebnis/environment-variables/pull/19
 [#20]: https://github.com/ergebnis/environment-variables/pull/20
+[#176]: https://github.com/ergebnis/environment-variables/pull/176
 
 [@localheinz]: https://github.com/localheinz
