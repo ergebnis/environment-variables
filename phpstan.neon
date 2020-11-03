@@ -3,14 +3,19 @@ includes:
 
 parameters:
 	checkMissingIterableValueType: false
+
 	ergebnis:
 		classesAllowedToBeExtended:
 			- BadMethodCallException
 			- InvalidArgumentException
 			- RuntimeException
+
 	inferPrivatePropertyTypeFromConstructor: true
+
 	level: max
+
 	paths:
 		- src/
 		- test/
+
 	tmpDir: .build/phpstan/
