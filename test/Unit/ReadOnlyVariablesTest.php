@@ -43,8 +43,8 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidType()
+     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
      *
      * @param mixed $name
      */
