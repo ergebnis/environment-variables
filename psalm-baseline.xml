@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
+<files psalm-version="4.7.0@d4377c0baf3ffbf0b1ec6998e8d1be2a40971005">
   <file src="src/FakeVariables.php">
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
-      <code>\is_string($name)</code>
+      <code>return !\is_string($value) &amp;&amp; false !== $value;</code>
     </DocblockTypeContradiction>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>\is_string($name)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/ReadOnlyVariables.php">
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
-      <code>\is_string($name)</code>
+      <code>return !\is_string($value) &amp;&amp; false !== $value;</code>
     </DocblockTypeContradiction>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>\is_string($name)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/TestVariables.php">
     <UnnecessaryVarAnnotation occurrences="1">
@@ -25,8 +19,10 @@
   </file>
   <file src="test/Unit/FakeVariablesTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
+    <MixedArrayOffset occurrences="1"/>
   </file>
   <file src="test/Unit/ReadOnlyVariablesTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
+    <MixedArrayOffset occurrences="1"/>
   </file>
 </files>
