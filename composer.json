@@ -18,7 +18,6 @@
     "ergebnis/data-provider": "^1.0.0",
     "ergebnis/license": "^1.1.0",
     "ergebnis/php-cs-fixer-config": "~3.2.1",
-    "ergebnis/test-util": "^1.5.0",
     "infection/infection": "~0.25.3",
     "phpunit/phpunit": "^8.5.21",
     "psalm/plugin-phpunit": "~0.16.1",
