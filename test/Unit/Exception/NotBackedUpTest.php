@@ -35,7 +35,7 @@ final class NotBackedUpTest extends Framework\TestCase
 
         $message = \sprintf(
             'The environment variables "%s" have not been backed up. Are you sure you want to modify them?',
-            \implode('", "', $names)
+            \implode('", "', $names),
         );
 
         self::assertSame($message, $exception->getMessage());

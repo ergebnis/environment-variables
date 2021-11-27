@@ -51,7 +51,7 @@ final class Name
             'string-empty' => '',
             'string-untrimmed' => \sprintf(
                 ' %s ',
-                self::faker()->sentence
+                self::faker()->sentence,
             ),
         ];
 

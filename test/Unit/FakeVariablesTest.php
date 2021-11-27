@@ -166,7 +166,7 @@ final class FakeVariablesTest extends Framework\TestCase
 
         $variables->set(
             $name,
-            $value
+            $value,
         );
     }
 
@@ -178,7 +178,7 @@ final class FakeVariablesTest extends Framework\TestCase
 
         $variables->set(
             self::NAME,
-            $value
+            $value,
         );
 
         self::assertSame($value, $variables->get(self::NAME));
@@ -234,7 +234,7 @@ final class FakeVariablesTest extends Framework\TestCase
 
         $variables->set(
             'FOO',
-            '9001'
+            '9001',
         );
 
         $expected = [

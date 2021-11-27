@@ -19,7 +19,7 @@ final class CouldNotUnset extends \RuntimeException implements Exception
     {
         return new self(\sprintf(
             'Could not unset environment variable "%s".',
-            $name
+            $name,
         ));
     }
 }

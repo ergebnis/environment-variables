@@ -75,7 +75,7 @@ final class SystemVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            self::faker()->sentence
+            self::faker()->sentence,
         ));
 
         $variables = new SystemVariables();
@@ -111,7 +111,7 @@ final class SystemVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            $value
+            $value,
         ));
 
         $variables = new SystemVariables();
@@ -132,7 +132,7 @@ final class SystemVariablesTest extends Framework\TestCase
 
         $variables->set(
             $name,
-            $value
+            $value,
         );
     }
 
@@ -144,7 +144,7 @@ final class SystemVariablesTest extends Framework\TestCase
 
         $variables->set(
             self::NAME,
-            $value
+            $value,
         );
 
         self::assertSame($value, \getenv(self::NAME));
@@ -169,7 +169,7 @@ final class SystemVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            $value
+            $value,
         ));
 
         $variables = new SystemVariables();
@@ -193,7 +193,7 @@ final class SystemVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            $value
+            $value,
         ));
 
         $variables = new SystemVariables();

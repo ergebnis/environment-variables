@@ -34,7 +34,7 @@ final class NotSetTest extends Framework\TestCase
 
         $message = \sprintf(
             'The environment variable "%s" is not set.',
-            $name
+            $name,
         );
 
         self::assertSame($message, $exception->getMessage());

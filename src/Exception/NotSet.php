@@ -19,7 +19,7 @@ final class NotSet extends \InvalidArgumentException implements Exception
     {
         return new self(\sprintf(
             'The environment variable "%s" is not set.',
-            $name
+            $name,
         ));
     }
 }

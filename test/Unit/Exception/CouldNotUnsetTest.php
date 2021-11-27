@@ -34,7 +34,7 @@ final class CouldNotUnsetTest extends Framework\TestCase
 
         $message = \sprintf(
             'Could not unset environment variable "%s".',
-            $name
+            $name,
         );
 
         self::assertSame($message, $exception->getMessage());

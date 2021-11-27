@@ -19,7 +19,7 @@ final class CouldNotSet extends \RuntimeException implements Exception
     {
         return new self(\sprintf(
             'Could not set environment variable "%s".',
-            $name
+            $name,
         ));
     }
 }

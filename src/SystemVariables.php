@@ -48,7 +48,7 @@ final class SystemVariables implements Variables
         $hasBeenSet = \putenv(\sprintf(
             '%s=%s',
             $name,
-            $value
+            $value,
         ));
 
         if (false === $hasBeenSet) {

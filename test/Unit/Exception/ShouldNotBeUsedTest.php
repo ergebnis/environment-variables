@@ -31,7 +31,7 @@ final class ShouldNotBeUsedTest extends Framework\TestCase
 
         $message = \sprintf(
             'Method "%s" should not be called.',
-            $method
+            $method,
         );
 
         self::assertSame($message, $exception->getMessage());

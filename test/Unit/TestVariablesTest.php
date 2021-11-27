@@ -68,7 +68,7 @@ final class TestVariablesTest extends Framework\TestCase
             \putenv(\sprintf(
                 '%s=%s',
                 $name,
-                $value
+                $value,
             ));
         }
     }
@@ -97,7 +97,7 @@ final class TestVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            self::faker()->sentence
+            self::faker()->sentence,
         ));
 
         $variables = TestVariables::backup();
@@ -133,7 +133,7 @@ final class TestVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            $value
+            $value,
         ));
 
         $variables = TestVariables::backup();
@@ -154,7 +154,7 @@ final class TestVariablesTest extends Framework\TestCase
 
         $variables->set(
             $name,
-            $value
+            $value,
         );
     }
 
@@ -168,7 +168,7 @@ final class TestVariablesTest extends Framework\TestCase
 
         $variables->set(
             self::NAME,
-            $value
+            $value,
         );
     }
 
@@ -180,7 +180,7 @@ final class TestVariablesTest extends Framework\TestCase
 
         $variables->set(
             self::NAME,
-            $value
+            $value,
         );
 
         self::assertSame($value, \getenv(self::NAME));
@@ -214,7 +214,7 @@ final class TestVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            $value
+            $value,
         ));
 
         $variables = TestVariables::backup(self::NAME);
@@ -231,7 +231,7 @@ final class TestVariablesTest extends Framework\TestCase
 
         $environmentVariables = TestVariables::backup(
             'FOO',
-            'BAR'
+            'BAR',
         );
 
         \putenv('FOO=ok');
@@ -251,7 +251,7 @@ final class TestVariablesTest extends Framework\TestCase
 
         $environmentVariables = TestVariables::backup(
             'FOO',
-            'BAR'
+            'BAR',
         );
 
         \putenv('FOO=ok');
@@ -279,7 +279,7 @@ final class TestVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            $value
+            $value,
         ));
 
         $variables = TestVariables::backup();
