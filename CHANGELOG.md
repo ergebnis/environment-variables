@@ -44,8 +44,8 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 * Extracted named constructors `Ergebnis\Environment\FakeVariables::empty()` and `Ergebnis\Environment\FakeVariables::fromArray()` ([#19]), by [@localheinz]
 * Extracted named constructors `Ergebnis\Environment\ReadOnlyVariables::empty()` and `Ergebnis\Environment\ReadOnlyVariables::fromArray()` ([#20]), by [@localheinz]
 
-[1.0.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/1.0.0
-[1.1.0]: https://github.com/ergebnis/phpstan-rules/releases/tag/1.1.0
+[1.0.0]: https://github.com/ergebnis/environment/variables/releases/tag/1.0.0
+[1.1.0]: https://github.com/ergebnis/environment/variables/releases/tag/1.1.0
 
 [c0c63bb...1.0.0]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...1.0.0
 [1.0.0...1.1.0]: https://github.com/ergebnis/environment-variables/compare/1.0.0...1.1.0
