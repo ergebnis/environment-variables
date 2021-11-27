@@ -15,7 +15,7 @@ namespace Ergebnis\Environment\Test\Unit;
 
 use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\FakeVariables;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
 /**
@@ -30,7 +30,7 @@ use PHPUnit\Framework;
  */
 final class FakeVariablesTest extends Framework\TestCase
 {
-    use Helper;
+    use Test\Util\Helper;
     private const NAME = 'FOO';
 
     public function testEmptyReturnsEmptyVariables(): void

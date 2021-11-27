@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\DataProvider;
 
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Environment\Test;
 
 final class Value
 {
-    use Helper;
+    use Test\Util\Helper;
 
     /**
      * @return \Generator<string, array<int, null|array|float|int|resource|\stdClass|true>>

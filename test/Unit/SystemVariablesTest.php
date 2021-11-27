@@ -15,8 +15,8 @@ namespace Ergebnis\Environment\Test\Unit;
 
 use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\SystemVariables;
+use Ergebnis\Environment\Test;
 use Ergebnis\Environment\TestVariables;
-use Ergebnis\Test\Util\Helper;
 use PHPUnit\Framework;
 
 /**
@@ -30,7 +30,7 @@ use PHPUnit\Framework;
  */
 final class SystemVariablesTest extends Framework\TestCase
 {
-    use Helper;
+    use Test\Util\Helper;
     private const NAME = 'FOO';
     private static TestVariables $environmentVariables;
 
