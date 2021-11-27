@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.9.2@00c062267d6e3229d91a1939992987e2d46f2393">
+<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
   <file src="src/FakeVariables.php">
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
@@ -16,6 +16,18 @@
     <UnnecessaryVarAnnotation occurrences="1">
       <code>array&lt;string, string&gt;</code>
     </UnnecessaryVarAnnotation>
+  </file>
+  <file src="test/DataProvider/Name.php">
+    <MixedReturnTypeCoercion occurrences="4">
+      <code>\Generator&lt;string, array&lt;int&gt;&gt;</code>
+      <code>\Generator&lt;string, array&lt;string&gt;&gt;</code>
+    </MixedReturnTypeCoercion>
+  </file>
+  <file src="test/DataProvider/Value.php">
+    <MixedReturnTypeCoercion occurrences="4">
+      <code>\Generator&lt;string, array&lt;int, null|array|float|int|resource|\stdClass|true&gt;&gt;</code>
+      <code>\Generator&lt;string, array&lt;null|int|object|true&gt;&gt;</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="test/Unit/FakeVariablesTest.php">
     <MixedArgumentTypeCoercion occurrences="2"/>
