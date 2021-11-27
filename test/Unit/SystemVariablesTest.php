@@ -31,7 +31,6 @@ use PHPUnit\Framework;
 final class SystemVariablesTest extends Framework\TestCase
 {
     use Helper;
-
     private const NAME = 'FOO';
 
     /**

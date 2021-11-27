@@ -32,7 +32,6 @@ use PHPUnit\Framework;
 final class TestVariablesTest extends Framework\TestCase
 {
     use Helper;
-
     private const NAME = 'QUX';
 
     /**

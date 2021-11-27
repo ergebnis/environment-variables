@@ -32,7 +32,6 @@ use PHPUnit\Framework;
 final class ReadOnlyVariablesTest extends Framework\TestCase
 {
     use Helper;
-
     private const NAME = 'FOO';
 
     public function testEmptyReturnsEmptyVariables(): void
