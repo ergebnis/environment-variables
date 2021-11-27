@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
 use Ergebnis\Environment\Exception\NotSet;
-use Ergebnis\Test\Util\Helper;
+use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
 /**
@@ -24,7 +24,7 @@ use PHPUnit\Framework;
  */
 final class NotSetTest extends Framework\TestCase
 {
-    use Helper;
+    use Test\Util\Helper;
 
     public function testNameReturnsException(): void
     {
