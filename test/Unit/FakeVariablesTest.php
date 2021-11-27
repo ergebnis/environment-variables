@@ -31,7 +31,6 @@ use PHPUnit\Framework;
 final class FakeVariablesTest extends Framework\TestCase
 {
     use Helper;
-
     private const NAME = 'FOO';
 
     public function testEmptyReturnsEmptyVariables(): void
