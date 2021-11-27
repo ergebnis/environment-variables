@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.1.0...main`][1.1.0...main].
 
+### Changed
+
+* Dropped support for PHP 7.2 ([#326]), by [@localheinz]
+
 ## [`1.1.0`][1.1.0]
 
 For a full diff see [`1.0.0...1.1.0`][1.0.0...1.1.0].
@@ -62,5 +66,6 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [#19]: https://github.com/ergebnis/environment-variables/pull/19
 [#20]: https://github.com/ergebnis/environment-variables/pull/20
 [#176]: https://github.com/ergebnis/environment-variables/pull/176
+[#326]: https://github.com/ergebnis/environment-variables/pull/326
 
 [@localheinz]: https://github.com/localheinz
