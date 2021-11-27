@@ -37,7 +37,7 @@ final class TestVariablesTest extends Framework\TestCase
     /**
      * @var array<string, false|string>
      */
-    private static $env = [];
+    private static array $env = [];
 
     protected function setUp(): void
     {

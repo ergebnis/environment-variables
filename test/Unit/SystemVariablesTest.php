@@ -32,11 +32,7 @@ final class SystemVariablesTest extends Framework\TestCase
 {
     use Helper;
     private const NAME = 'FOO';
-
-    /**
-     * @var TestVariables
-     */
-    private static $environmentVariables;
+    private static TestVariables $environmentVariables;
 
     protected function setUp(): void
     {
