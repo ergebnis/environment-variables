@@ -164,7 +164,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
         $variables->set(
             self::NAME,
-            $value
+            $value,
         );
     }
 

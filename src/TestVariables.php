@@ -36,24 +36,24 @@ final class TestVariables implements Variables
             \array_fill(
                 0,
                 \count($names),
-                false
-            )
+                false,
+            ),
         );
 
         /** @var array<string, string> $currentlySetVariables */
         $currentlySetVariables = \array_intersect_key(
             \getenv(),
-            \array_flip($names)
+            \array_flip($names),
         );
 
         $backedUpVariables = \array_merge(
             $possiblyUnsetVariables,
-            $currentlySetVariables
+            $currentlySetVariables,
         );
 
         return new self(
             new SystemVariables(),
-            $backedUpVariables
+            $backedUpVariables,
         );
     }
 
@@ -92,7 +92,7 @@ final class TestVariables implements Variables
         try {
             $this->systemVariables->set(
                 $name,
-                $value
+                $value,
             );
         } catch (Exception\CouldNotSet $exception) {
             throw Exception\CouldNotSet::name($name);
@@ -136,7 +136,7 @@ final class TestVariables implements Variables
             try {
                 $this->systemVariables->set(
                     $name,
-                    $value
+                    $value,
                 );
             } catch (Exception\CouldNotSet $exception) {
                 throw Exception\CouldNotSet::name($name);

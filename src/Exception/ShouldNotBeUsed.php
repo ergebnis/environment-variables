@@ -19,7 +19,7 @@ final class ShouldNotBeUsed extends \BadMethodCallException implements Exception
     {
         return new self(\sprintf(
             'Method "%s" should not be called.',
-            $method
+            $method,
         ));
     }
 }
