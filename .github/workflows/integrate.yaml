@@ -9,8 +9,6 @@ on: # yamllint disable-line rule:truthy
       - "main"
 
 env:
-  MIN_COVERED_MSI: 93
-  MIN_MSI: 87
   PHP_EXTENSIONS: "mbstring"
 
 jobs:
@@ -211,7 +209,7 @@ jobs:
           dependencies: "${{ matrix.dependencies }}"
 
       - name: "Run mutation tests with Xdebug and infection/infection"
-        run: "vendor/bin/infection --ignore-msi-with-no-mutations --min-covered-msi=${{ env.MIN_COVERED_MSI }} --min-msi=${{ env.MIN_MSI }}"
+        run: "vendor/bin/infection --configuration=infection.json"
 
   static-code-analysis:
     name: "Static Code Analysis"
