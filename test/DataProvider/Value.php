@@ -13,12 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\DataProvider;
 
-use Ergebnis\Environment\Test;
+use Ergebnis\DataProvider;
 
-final class Value
+final class Value extends DataProvider\AbstractProvider
 {
-    use Test\Util\Helper;
-
     /**
      * @return \Generator<string, array<int, null|array|float|int|resource|\stdClass|true>>
      */
@@ -29,7 +27,7 @@ final class Value
         /** @var resource $resource */
         $resource = \fopen(__FILE__, 'rb');
 
-        $values = [
+        return self::provideDataForValues([
             'array' => [
                 $faker->word,
                 $faker->word,
@@ -40,13 +38,7 @@ final class Value
             'null' => null,
             'object' => new \stdClass(),
             'resource' => $resource,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
+        ]);
     }
 
     /**
@@ -54,14 +46,8 @@ final class Value
      */
     public static function invalidValue(): \Generator
     {
-        $values = [
+        return self::provideDataForValues([
             'bool-true' => true,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
+        ]);
     }
 }

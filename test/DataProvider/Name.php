@@ -13,12 +13,10 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\DataProvider;
 
-use Ergebnis\Environment\Test;
+use Ergebnis\DataProvider;
 
-final class Name
+final class Name extends DataProvider\AbstractProvider
 {
-    use Test\Util\Helper;
-
     /**
      * @return \Generator<string, array<int>>
      */
@@ -26,19 +24,13 @@ final class Name
     {
         $faker = self::faker();
 
-        $values = [
+        return self::provideDataForValues([
             'int-greater-than-one' => $faker->numberBetween(2),
             'int-less-than-minus-one' => -1 * $faker->numberBetween(2),
             'int-minus-one' => -1,
             'int-one' => 1,
             'int-zero' => 0,
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
+        ]);
     }
 
     /**
@@ -46,19 +38,13 @@ final class Name
      */
     public static function invalidValue(): \Generator
     {
-        $values = [
+        return self::provideDataForValues([
             'string-blank' => ' ',
             'string-empty' => '',
             'string-untrimmed' => \sprintf(
                 ' %s ',
                 self::faker()->sentence,
             ),
-        ];
-
-        foreach ($values as $key => $value) {
-            yield $key => [
-                $value,
-            ];
-        }
+        ]);
     }
 }
