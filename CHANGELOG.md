@@ -6,7 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
-For a full diff see [`1.2.0...main`][1.2.0...main].
+For a full diff see [`1.3.0...main`][1.3.0...main].
+
+## [`1.3.0`][1.3.0]
+
+For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0].
+
+### Changed
+
+* Dropped support for PHP 7.3 ([#337]), by [@localheinz]
 
 ## [`1.2.0`][1.2.0]
 
@@ -55,7 +63,8 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [c0c63bb...1.0.0]: https://github.com/ergebnis/environment-variables/compare/c0c63bb...1.0.0
 [1.0.0...1.1.0]: https://github.com/ergebnis/environment-variables/compare/1.0.0...1.1.0
 [1.1.0...1.2.0]: https://github.com/ergebnis/environment-variables/compare/1.1.0...1.2.0
-[1.2.0...main]: https://github.com/ergebnis/environment-variables/compare/1.2.0...main
+[1.2.0...1.3.0]: https://github.com/ergebnis/environment-variables/compare/1.2.0...1.3.0
+[1.3.0...main]: https://github.com/ergebnis/environment-variables/compare/1.3.0...main
 
 [#1]: https://github.com/ergebnis/environment-variables/pull/1
 [#2]: https://github.com/ergebnis/environment-variables/pull/2
@@ -73,5 +82,6 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [#20]: https://github.com/ergebnis/environment-variables/pull/20
 [#176]: https://github.com/ergebnis/environment-variables/pull/176
 [#326]: https://github.com/ergebnis/environment-variables/pull/326
+[#337]: https://github.com/ergebnis/environment-variables/pull/337
 
 [@localheinz]: https://github.com/localheinz
