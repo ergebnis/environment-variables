@@ -1,15 +1,19 @@
 {
   "name": "ergebnis/environment-variables",
-  "type": "library",
   "description": "Provides an abstraction for environment variables.",
-  "homepage": "https://github.com/ergebnis/environment-variables",
   "license": "MIT",
+  "type": "library",
   "authors": [
     {
       "name": "Andreas Möller",
       "email": "am@localheinz.com"
     }
   ],
+  "homepage": "https://github.com/ergebnis/environment-variables",
+  "support": {
+    "issues": "https://github.com/ergebnis/environment-variables/issues",
+    "source": "https://github.com/ergebnis/environment-variables"
+  },
   "require": {
     "php": "^7.4 || ^8.0"
   },
@@ -23,13 +27,6 @@
     "psalm/plugin-phpunit": "~0.16.1",
     "vimeo/psalm": "^4.14.0"
   },
-  "config": {
-    "platform": {
-      "php": "7.4.25"
-    },
-    "preferred-install": "dist",
-    "sort-packages": true
-  },
   "autoload": {
     "psr-4": {
       "Ergebnis\\Environment\\": "src/"
@@ -40,8 +37,11 @@
       "Ergebnis\\Environment\\Test\\": "test/"
     }
   },
-  "support": {
-    "issues": "https://github.com/ergebnis/environment-variables/issues",
-    "source": "https://github.com/ergebnis/environment-variables"
+  "config": {
+    "platform": {
+      "php": "7.4.25"
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
   }
 }
