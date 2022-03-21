@@ -38,6 +38,10 @@
     }
   },
   "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true,
+      "infection/extension-installer": true
+    },
     "platform": {
       "php": "7.4.25"
     },
