@@ -23,7 +23,7 @@
     "ergebnis/license": "^1.2.0",
     "ergebnis/php-cs-fixer-config": "~4.7.0",
     "infection/infection": "~0.26.6",
-    "phpunit/phpunit": "^9.5.23",
+    "phpunit/phpunit": "^9.5.24",
     "psalm/plugin-phpunit": "~0.17.0",
     "vimeo/psalm": "^4.26"
   },
