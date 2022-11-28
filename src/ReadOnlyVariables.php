@@ -39,7 +39,9 @@ final class ReadOnlyVariables implements Variables
     public static function fromArray(array $values): self
     {
         $invalidNames = \array_filter(\array_keys($values), static function ($name): bool {
-            return !\is_string($name) || '' === $name || \trim($name) !== $name;
+            return !\is_string($name)
+                || '' === $name
+                || \trim($name) !== $name;
         });
 
         if ([] !== $invalidNames) {
@@ -47,7 +49,8 @@ final class ReadOnlyVariables implements Variables
         }
 
         $invalidValues = \array_filter($values, static function ($value): bool {
-            return !\is_string($value) && false !== $value;
+            return !\is_string($value)
+                && false !== $value;
         });
 
         if ([] !== $invalidValues) {
@@ -61,7 +64,10 @@ final class ReadOnlyVariables implements Variables
 
     public function has(string $name): bool
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -70,7 +76,10 @@ final class ReadOnlyVariables implements Variables
 
     public function get(string $name): string
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -81,8 +90,10 @@ final class ReadOnlyVariables implements Variables
         return $this->values[$name];
     }
 
-    public function set(string $name, string $value): void
-    {
+    public function set(
+        string $name,
+        string $value,
+    ): void {
         throw Exception\ShouldNotBeUsed::create(__METHOD__);
     }
 

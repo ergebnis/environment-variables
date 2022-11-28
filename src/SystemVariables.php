@@ -17,7 +17,10 @@ final class SystemVariables implements Variables
 {
     public function has(string $name): bool
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -26,7 +29,10 @@ final class SystemVariables implements Variables
 
     public function get(string $name): string
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -39,9 +45,14 @@ final class SystemVariables implements Variables
         return $value;
     }
 
-    public function set(string $name, string $value): void
-    {
-        if ('' === $name || \trim($name) !== $name) {
+    public function set(
+        string $name,
+        string $value,
+    ): void {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -58,7 +69,10 @@ final class SystemVariables implements Variables
 
     public function unset(string $name): void
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 

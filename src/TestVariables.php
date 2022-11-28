@@ -21,8 +21,10 @@ final class TestVariables implements Variables
     /**
      * @param array<string, false|string> $backedUpVariables
      */
-    private function __construct(SystemVariables $systemVariables, array $backedUpVariables)
-    {
+    private function __construct(
+        SystemVariables $systemVariables,
+        array $backedUpVariables,
+    ) {
         $this->systemVariables = $systemVariables;
         $this->backedUpVariables = $backedUpVariables;
     }
@@ -57,7 +59,10 @@ final class TestVariables implements Variables
 
     public function has(string $name): bool
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -66,7 +71,10 @@ final class TestVariables implements Variables
 
     public function get(string $name): string
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -79,7 +87,10 @@ final class TestVariables implements Variables
 
     public function set(string $name, string $value): void
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 
@@ -99,7 +110,10 @@ final class TestVariables implements Variables
 
     public function unset(string $name): void
     {
-        if ('' === $name || \trim($name) !== $name) {
+        if (
+            '' === $name
+            || \trim($name) !== $name
+        ) {
             throw Exception\InvalidName::create();
         }
 

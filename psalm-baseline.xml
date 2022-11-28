@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
+<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
   <file src="src/FakeVariables.php">
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
-      <code>return !\is_string($value) &amp;&amp; false !== $value;</code>
     </DocblockTypeContradiction>
   </file>
   <file src="src/ReadOnlyVariables.php">
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
-      <code>return !\is_string($value) &amp;&amp; false !== $value;</code>
     </DocblockTypeContradiction>
   </file>
   <file src="src/TestVariables.php">
