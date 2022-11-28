@@ -49,7 +49,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
      */
     public function testFromArrayRejectsValuesWhenTheyHaveInvalidNames($name): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $this->expectException(Exception\InvalidName::class);
 
@@ -104,7 +104,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
     public function testHasReturnsTrueWhenEnvironmentVariableHasBeenInjectedAndValueIsNotFalse(): void
     {
         $variables = ReadOnlyVariables::fromArray([
-            self::NAME => self::faker()->sentence,
+            self::NAME => self::faker()->sentence(),
         ]);
 
         self::assertTrue($variables->has(self::NAME));
@@ -144,7 +144,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
     public function testGetReturnsValueWhenEnvironmentVariableHasBeenInjectedAndValueIsNotFalse(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = ReadOnlyVariables::fromArray([
             self::NAME => $value,
@@ -155,7 +155,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
     public function testSetThrowsShouldNotBeUsed(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = ReadOnlyVariables::empty();
 
@@ -169,7 +169,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
 
     public function testUnsetThrowsShouldNotBeUsed(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = ReadOnlyVariables::fromArray([
             self::NAME => $value,

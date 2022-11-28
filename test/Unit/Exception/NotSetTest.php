@@ -28,7 +28,7 @@ final class NotSetTest extends Framework\TestCase
 
     public function testNameReturnsException(): void
     {
-        $name = self::faker()->word;
+        $name = self::faker()->word();
 
         $exception = NotSet::name($name);
 

@@ -43,7 +43,7 @@ final class Name extends DataProvider\AbstractProvider
             'string-empty' => '',
             'string-untrimmed' => \sprintf(
                 ' %s ',
-                self::faker()->sentence,
+                self::faker()->sentence(),
             ),
         ]);
     }

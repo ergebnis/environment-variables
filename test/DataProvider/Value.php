@@ -29,9 +29,9 @@ final class Value extends DataProvider\AbstractProvider
 
         return self::provideDataForValues([
             'array' => [
-                $faker->word,
-                $faker->word,
-                $faker->word,
+                $faker->word(),
+                $faker->word(),
+                $faker->word(),
             ],
             'float' => $faker->randomFloat(),
             'int' => $faker->numberBetween(2),

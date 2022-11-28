@@ -127,7 +127,7 @@ final class TestVariablesTest extends Framework\TestCase
 
     public function testGetReturnsValueWhenEnvironmentVariableIsSet(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         \putenv(\sprintf(
             '%s=%s',
@@ -145,7 +145,7 @@ final class TestVariablesTest extends Framework\TestCase
      */
     public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = TestVariables::backup();
 
@@ -159,7 +159,7 @@ final class TestVariablesTest extends Framework\TestCase
 
     public function testSetThrowsNotBackedUpWhenVariableHasNotBeenBackedUp(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = TestVariables::backup();
 
@@ -173,7 +173,7 @@ final class TestVariablesTest extends Framework\TestCase
 
     public function testSetSetsValueWhenItHasBeenBackedUp(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = TestVariables::backup(self::NAME);
 
@@ -208,7 +208,7 @@ final class TestVariablesTest extends Framework\TestCase
 
     public function testUnsetUnsetsVariableWhenVariableHasBeenBackedUp(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         \putenv(\sprintf(
             '%s=%s',
@@ -273,7 +273,7 @@ final class TestVariablesTest extends Framework\TestCase
 
     public function testToArrayReturnsValuesWhenValueHasBeenSet(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         \putenv(\sprintf(
             '%s=%s',

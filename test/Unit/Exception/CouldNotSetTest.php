@@ -28,7 +28,7 @@ final class CouldNotSetTest extends Framework\TestCase
 
     public function testNameReturnsException(): void
     {
-        $name = self::faker()->word;
+        $name = self::faker()->word();
 
         $exception = CouldNotSet::name($name);
 

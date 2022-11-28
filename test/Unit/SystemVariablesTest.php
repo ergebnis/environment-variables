@@ -101,7 +101,7 @@ final class SystemVariablesTest extends Framework\TestCase
 
     public function testGetReturnsValueWhenEnvironmentVariableIsSet(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         \putenv(\sprintf(
             '%s=%s',
@@ -119,7 +119,7 @@ final class SystemVariablesTest extends Framework\TestCase
      */
     public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = new SystemVariables();
 
@@ -133,7 +133,7 @@ final class SystemVariablesTest extends Framework\TestCase
 
     public function testSetSetsValue(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         $variables = new SystemVariables();
 
@@ -159,7 +159,7 @@ final class SystemVariablesTest extends Framework\TestCase
 
     public function testUnsetUnsetsVariable(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         \putenv(\sprintf(
             '%s=%s',
@@ -183,7 +183,7 @@ final class SystemVariablesTest extends Framework\TestCase
 
     public function testToArrayReturnsValuesWhenValueHasBeenSet(): void
     {
-        $value = self::faker()->sentence;
+        $value = self::faker()->sentence();
 
         \putenv(\sprintf(
             '%s=%s',
