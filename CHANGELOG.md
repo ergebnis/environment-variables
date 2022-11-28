@@ -14,7 +14,7 @@ For a full diff see [`1.2.0...1.3.0`][1.2.0...1.3.0].
 
 ### Changed
 
-* Dropped support for PHP 7.3 ([#337]), by [@localheinz]
+- Dropped support for PHP 7.3 ([#337]), by [@localheinz]
 
 ## [`1.2.0`][1.2.0]
 
@@ -22,7 +22,7 @@ For a full diff see [`1.1.0...1.2.0`][1.1.0...1.2.0].
 
 ### Changed
 
-* Dropped support for PHP 7.2 ([#326]), by [@localheinz]
+- Dropped support for PHP 7.2 ([#326]), by [@localheinz]
 
 ## [`1.1.0`][1.1.0]
 
@@ -30,7 +30,7 @@ For a full diff see [`1.0.0...1.1.0`][1.0.0...1.1.0].
 
 ### Added
 
-* Added support for PHP 8.0 ([#176]), by [@localheinz]
+- Added support for PHP 8.0 ([#176]), by [@localheinz]
 
 ## [`1.0.0`][1.0.0]
 
@@ -38,23 +38,23 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 
 ### Added
 
-* Added `Test`, which allows backing up, restoring, and safely modifying environment variables in test environments ([#1]), by [@localheinz]
-* Added `Production`, which allows reading, setting, and unsetting environment variables in production environments ([#2]), by [@localheinz]
-* Added `FakeVariables`, which can be used as a fake implementation of `Variables` in test environments ([#7]), by [@localheinz]
-* Added `ReadOnlyVariables`, which can be used as a mock implementation of `Variables` in test environments ([#8]), by [@localheinz]
-* Added `toArray()` to `Ergebnis\Environment\Variables` ([#18]), by [@localheinz]
+- Added `Test`, which allows backing up, restoring, and safely modifying environment variables in test environments ([#1]), by [@localheinz]
+- Added `Production`, which allows reading, setting, and unsetting environment variables in production environments ([#2]), by [@localheinz]
+- Added `FakeVariables`, which can be used as a fake implementation of `Variables` in test environments ([#7]), by [@localheinz]
+- Added `ReadOnlyVariables`, which can be used as a mock implementation of `Variables` in test environments ([#8]), by [@localheinz]
+- Added `toArray()` to `Ergebnis\Environment\Variables` ([#18]), by [@localheinz]
 
 ### Changed
 
-* Renamed namespace `Ergebnis\Environment\Variables` to `Ergebnis\Environment` ([#5]), by [@localheinz]
-* Renamed `Ergebnis\Environment\Production` to `Ergebnis\Environment\SystemVariables` ([#6]), by [@localheinz]
-* Renamed `Ergebnis\Environment\Test` to `Ergebnis\Environment\TestVariables` ([#9]), by [@localheinz]
-* Started throwing `Ergebnis\Environment\Exception\CouldNotSet` when a system environment variable could not be set ([#14]), by [@localheinz]
-* Started throwing `Ergebnis\Environment\Exception\CouldNotUnset` when a system environment variable could not be unset ([#15]), by [@localheinz]
-* Started throwing `Ergebnis\Environment\Exception\NotSet` when attempting to retrieve the value of an environment variable that is not set ([#16]), by [@localheinz]
-* Adjusted `Ergebnis\Environment\TestVariables` so it implements the `Ergebnis\Environment\Variables` interface as well ([#17]), by [@localheinz]
-* Extracted named constructors `Ergebnis\Environment\FakeVariables::empty()` and `Ergebnis\Environment\FakeVariables::fromArray()` ([#19]), by [@localheinz]
-* Extracted named constructors `Ergebnis\Environment\ReadOnlyVariables::empty()` and `Ergebnis\Environment\ReadOnlyVariables::fromArray()` ([#20]), by [@localheinz]
+- Renamed namespace `Ergebnis\Environment\Variables` to `Ergebnis\Environment` ([#5]), by [@localheinz]
+- Renamed `Ergebnis\Environment\Production` to `Ergebnis\Environment\SystemVariables` ([#6]), by [@localheinz]
+- Renamed `Ergebnis\Environment\Test` to `Ergebnis\Environment\TestVariables` ([#9]), by [@localheinz]
+- Started throwing `Ergebnis\Environment\Exception\CouldNotSet` when a system environment variable could not be set ([#14]), by [@localheinz]
+- Started throwing `Ergebnis\Environment\Exception\CouldNotUnset` when a system environment variable could not be unset ([#15]), by [@localheinz]
+- Started throwing `Ergebnis\Environment\Exception\NotSet` when attempting to retrieve the value of an environment variable that is not set ([#16]), by [@localheinz]
+- Adjusted `Ergebnis\Environment\TestVariables` so it implements the `Ergebnis\Environment\Variables` interface as well ([#17]), by [@localheinz]
+- Extracted named constructors `Ergebnis\Environment\FakeVariables::empty()` and `Ergebnis\Environment\FakeVariables::fromArray()` ([#19]), by [@localheinz]
+- Extracted named constructors `Ergebnis\Environment\ReadOnlyVariables::empty()` and `Ergebnis\Environment\ReadOnlyVariables::fromArray()` ([#20]), by [@localheinz]
 
 [1.0.0]: https://github.com/ergebnis/environment/variables/releases/tag/1.0.0
 [1.1.0]: https://github.com/ergebnis/environment/variables/releases/tag/1.1.0
