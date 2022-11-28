@@ -15,18 +15,13 @@ namespace Ergebnis\Environment;
 
 final class TestVariables implements Variables
 {
-    private SystemVariables $systemVariables;
-    private array $backedUpVariables;
-
     /**
      * @param array<string, false|string> $backedUpVariables
      */
     private function __construct(
-        SystemVariables $systemVariables,
-        array $backedUpVariables,
+        private SystemVariables $systemVariables,
+        private array $backedUpVariables,
     ) {
-        $this->systemVariables = $systemVariables;
-        $this->backedUpVariables = $backedUpVariables;
     }
 
     public static function backup(string ...$names): self

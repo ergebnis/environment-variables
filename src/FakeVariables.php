@@ -15,14 +15,11 @@ namespace Ergebnis\Environment;
 
 final class FakeVariables implements Variables
 {
-    private array $values;
-
     /**
      * @param array<string, string> $values
      */
-    private function __construct(array $values)
+    private function __construct(private array $values)
     {
-        $this->values = $values;
     }
 
     public static function empty(): self
