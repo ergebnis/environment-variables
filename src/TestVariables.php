@@ -98,7 +98,7 @@ final class TestVariables implements Variables
                 $name,
                 $value,
             );
-        } catch (Exception\CouldNotSet $exception) {
+        } catch (Exception\CouldNotSet) {
             throw Exception\CouldNotSet::name($name);
         }
     }
@@ -118,7 +118,7 @@ final class TestVariables implements Variables
 
         try {
             $this->systemVariables->unset($name);
-        } catch (Exception\CouldNotUnset $exception) {
+        } catch (Exception\CouldNotUnset) {
             throw Exception\CouldNotUnset::name($name);
         }
     }
@@ -133,7 +133,7 @@ final class TestVariables implements Variables
             if (!\is_string($value)) {
                 try {
                     $this->systemVariables->unset($name);
-                } catch (Exception\CouldNotUnset $exception) {
+                } catch (Exception\CouldNotUnset) {
                     throw Exception\CouldNotUnset::name($name);
                 }
 
@@ -145,7 +145,7 @@ final class TestVariables implements Variables
                     $name,
                     $value,
                 );
-            } catch (Exception\CouldNotSet $exception) {
+            } catch (Exception\CouldNotSet) {
                 throw Exception\CouldNotSet::name($name);
             }
         }
