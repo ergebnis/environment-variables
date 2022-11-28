@@ -29,7 +29,6 @@ final class TestVariables implements Variables
 
     public static function backup(string ...$names): self
     {
-        /** @var array<string, false> $possiblyUnsetVariables */
         $possiblyUnsetVariables = \array_combine(
             $names,
             \array_fill(
