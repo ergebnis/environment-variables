@@ -28,11 +28,7 @@ final class Value extends DataProvider\AbstractProvider
         $resource = \fopen(__FILE__, 'rb');
 
         return self::provideDataForValues([
-            'array' => [
-                $faker->word(),
-                $faker->word(),
-                $faker->word(),
-            ],
+            'array' => $faker->words(),
             'float' => $faker->randomFloat(),
             'int' => $faker->numberBetween(2),
             'null' => null,
