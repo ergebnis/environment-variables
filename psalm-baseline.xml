@@ -4,13 +4,39 @@
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
     </DocblockTypeContradiction>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;values[$name]</code>
+    </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$this-&gt;values</code>
+      <code>array</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="src/ReadOnlyVariables.php">
     <DocblockTypeContradiction occurrences="2">
       <code>!\is_string($name)</code>
     </DocblockTypeContradiction>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$this-&gt;values[$name]</code>
+    </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$this-&gt;values</code>
+      <code>array</code>
+    </MixedReturnTypeCoercion>
   </file>
   <file src="src/TestVariables.php">
+    <MixedArgumentTypeCoercion occurrences="4">
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+      <code>$name</code>
+    </MixedArgumentTypeCoercion>
     <UnnecessaryVarAnnotation occurrences="1">
       <code>array&lt;string, string&gt;</code>
     </UnnecessaryVarAnnotation>

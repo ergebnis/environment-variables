@@ -15,8 +15,8 @@ namespace Ergebnis\Environment;
 
 final class TestVariables implements Variables
 {
-    private $systemVariables;
-    private $backedUpVariables;
+    private SystemVariables $systemVariables;
+    private array $backedUpVariables;
 
     /**
      * @param array<string, false|string> $backedUpVariables
