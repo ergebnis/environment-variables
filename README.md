@@ -49,7 +49,7 @@ use Ergebnis\Environment;
 
 final class BuildEnvironment
 {
-    private $environmentVariables;
+    private Environment\Variables $environmentVariables;
 
     public function __construct(Environment\Variables $environmentVariables)
     {
