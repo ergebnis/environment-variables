@@ -1,15 +1,16 @@
 # environment-variables
 
 [![Integrate](https://github.com/ergebnis/environment-variables/workflows/Integrate/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
-[![Prune](https://github.com/ergebnis/environment-variables/workflows/Prune/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
+[![Merge](https://github.com/ergebnis/environment-variables/workflows/Merge/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
 [![Release](https://github.com/ergebnis/environment-variables/workflows/Release/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
 [![Renew](https://github.com/ergebnis/environment-variables/workflows/Renew/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
 
-[![Code Coverage](https://codecov.io/gh/ergebnis/environment-variables/branch/master/graph/badge.svg)](https://codecov.io/gh/ergebnis/environment-variables)
+[![Code Coverage](https://codecov.io/gh/ergebnis/environment-variables/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/environment-variables)
 [![Type Coverage](https://shepherd.dev/github/ergebnis/environment-variables/coverage.svg)](https://shepherd.dev/github/ergebnis/environment-variables)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/environment-variables/v/stable)](https://packagist.org/packages/ergebnis/environment-variables)
 [![Total Downloads](https://poser.pugx.org/ergebnis/environment-variables/downloads)](https://packagist.org/packages/ergebnis/environment-variables)
+[![Monthly Downloads](http://poser.pugx.org/ergebnis/environment-variables/d/monthly)](https://packagist.org/packages/ergebnis/environment-variables)
 
 Provides an abstraction of environment variables.
 
@@ -262,6 +263,6 @@ This package is licensed using the MIT License.
 
 Please have a look at [`LICENSE.md`](LICENSE.md).
 
-## Curious what I am building?
+## Curious what I am up to?
 
-:mailbox_with_mail: [Subscribe to my list](https://localheinz.com/projects/), and I will occasionally send you an email to let you know what I am working on.
+Follow me on [Twitter](https://twitter.com/intent/follow?screen_name=localheinz)!
