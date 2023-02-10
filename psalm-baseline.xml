@@ -1,38 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
+<files psalm-version="5.6.0@e784128902dfe01d489c4123d69918a9f3c1eac5">
   <file src="src/FakeVariables.php">
-    <DocblockTypeContradiction occurrences="2">
+    <DocblockTypeContradiction>
       <code>!\is_string($name)</code>
+      <code>return !\is_string($value)
+                &amp;&amp; false !== $value;</code>
     </DocblockTypeContradiction>
   </file>
   <file src="src/ReadOnlyVariables.php">
-    <DocblockTypeContradiction occurrences="2">
+    <DocblockTypeContradiction>
       <code>!\is_string($name)</code>
+      <code>return !\is_string($value)
+                &amp;&amp; false !== $value;</code>
     </DocblockTypeContradiction>
   </file>
   <file src="src/TestVariables.php">
-    <UnnecessaryVarAnnotation occurrences="1">
+    <UnnecessaryVarAnnotation>
       <code>array&lt;string, string&gt;</code>
     </UnnecessaryVarAnnotation>
   </file>
   <file src="test/DataProvider/Name.php">
-    <MixedReturnTypeCoercion occurrences="4">
+    <MixedReturnTypeCoercion>
       <code>\Generator&lt;string, array&lt;int&gt;&gt;</code>
       <code>\Generator&lt;string, array&lt;string&gt;&gt;</code>
+      <code>self::provideDataForValues([
+            'int-greater-than-one' =&gt; $faker-&gt;numberBetween(2),
+            'int-less-than-minus-one' =&gt; -1 * $faker-&gt;numberBetween(2),
+            'int-minus-one' =&gt; -1,
+            'int-one' =&gt; 1,
+            'int-zero' =&gt; 0,
+        ])</code>
+      <code>self::provideDataForValues([
+            'string-blank' =&gt; ' ',
+            'string-empty' =&gt; '',
+            'string-untrimmed' =&gt; \sprintf(
+                ' %s ',
+                self::faker()-&gt;sentence(),
+            ),
+        ])</code>
     </MixedReturnTypeCoercion>
   </file>
   <file src="test/DataProvider/Value.php">
-    <MixedReturnTypeCoercion occurrences="4">
+    <MixedReturnTypeCoercion>
       <code>\Generator&lt;string, array&lt;int, null|array|float|int|resource|\stdClass|true&gt;&gt;</code>
       <code>\Generator&lt;string, array&lt;null|int|object|true&gt;&gt;</code>
+      <code>self::provideDataForValues([
+            'array' =&gt; $faker-&gt;words(),
+            'float' =&gt; $faker-&gt;randomFloat(),
+            'int' =&gt; $faker-&gt;numberBetween(2),
+            'null' =&gt; null,
+            'object' =&gt; new \stdClass(),
+            'resource' =&gt; $resource,
+        ])</code>
+      <code>self::provideDataForValues([
+            'bool-true' =&gt; true,
+        ])</code>
     </MixedReturnTypeCoercion>
   </file>
   <file src="test/Unit/FakeVariablesTest.php">
-    <MixedArgumentTypeCoercion occurrences="2"/>
-    <MixedArrayOffset occurrences="1"/>
+    <MixedArgumentTypeCoercion>
+      <code>[
+            $name =&gt; $value,
+        ]</code>
+      <code>[
+            self::NAME =&gt; $value,
+        ]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayOffset>
+      <code>[
+            $name =&gt; $value,
+        ]</code>
+    </MixedArrayOffset>
   </file>
   <file src="test/Unit/ReadOnlyVariablesTest.php">
-    <MixedArgumentTypeCoercion occurrences="2"/>
-    <MixedArrayOffset occurrences="1"/>
+    <MixedArgumentTypeCoercion>
+      <code>[
+            $name =&gt; $value,
+        ]</code>
+      <code>[
+            self::NAME =&gt; $value,
+        ]</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayOffset>
+      <code>[
+            $name =&gt; $value,
+        ]</code>
+    </MixedArrayOffset>
   </file>
 </files>
