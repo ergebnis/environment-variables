@@ -189,10 +189,7 @@ use PHPUnit\Framework;
 
 final class FooTest extends Framework\TestCase
 {
-    /**
-     * @var Environment\TestVariables
-     */
-    private static $environmentVariables;
+    private static Environment\TestVariables $environmentVariables;
 
     protected function setUp() : void
     {
