@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.10.0@a5effd2d2dddd1a7ea7a0f6a051ce63ff979e356">
+<files psalm-version="5.13.1@086b94371304750d1c673315321a55d15fc59015">
   <file src="src/FakeVariables.php">
     <DocblockTypeContradiction>
       <code>!\is_string($name)</code>
-      <code>return !\is_string($name)
+      <code><![CDATA[return !\is_string($name)
                 || '' === $name
-                || \trim($name) !== $name;</code>
+                || \trim($name) !== $name;]]></code>
       <code><![CDATA[return !\is_string($value)
                 && false !== $value;]]></code>
     </DocblockTypeContradiction>
@@ -13,9 +13,9 @@
   <file src="src/ReadOnlyVariables.php">
     <DocblockTypeContradiction>
       <code>!\is_string($name)</code>
-      <code>return !\is_string($name)
+      <code><![CDATA[return !\is_string($name)
                 || '' === $name
-                || \trim($name) !== $name;</code>
+                || \trim($name) !== $name;]]></code>
       <code><![CDATA[return !\is_string($value)
                 && false !== $value;]]></code>
     </DocblockTypeContradiction>
