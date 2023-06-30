@@ -14,21 +14,17 @@ declare(strict_types=1);
 namespace Ergebnis\Environment\Test\Unit;
 
 use Ergebnis\Environment\Exception;
+use Ergebnis\Environment\SystemVariables;
 use Ergebnis\Environment\Test;
 use Ergebnis\Environment\TestVariables;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\TestVariables
- *
- * @uses \Ergebnis\Environment\Exception\InvalidName
- * @uses \Ergebnis\Environment\Exception\InvalidValue
- * @uses \Ergebnis\Environment\Exception\NotBackedUp
- * @uses \Ergebnis\Environment\Exception\NotSet
- * @uses \Ergebnis\Environment\SystemVariables
- */
+#[Framework\Attributes\CoversClass(TestVariables::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidName::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidValue::class)]
+#[Framework\Attributes\UsesClass(Exception\NotBackedUp::class)]
+#[Framework\Attributes\UsesClass(Exception\NotSet::class)]
+#[Framework\Attributes\UsesClass(SystemVariables::class)]
 final class TestVariablesTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -72,9 +68,7 @@ final class TestVariablesTest extends Framework\TestCase
         }
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = TestVariables::backup();
@@ -96,7 +90,7 @@ final class TestVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            self::faker()->sentence,
+            self::faker()->sentence(),
         ));
 
         $variables = TestVariables::backup();
@@ -104,9 +98,7 @@ final class TestVariablesTest extends Framework\TestCase
         self::assertTrue($variables->has(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = TestVariables::backup();
@@ -140,9 +132,7 @@ final class TestVariablesTest extends Framework\TestCase
         self::assertSame($value, $variables->get(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $value = self::faker()->sentence();
@@ -185,9 +175,7 @@ final class TestVariablesTest extends Framework\TestCase
         self::assertSame($value, \getenv(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = TestVariables::backup();

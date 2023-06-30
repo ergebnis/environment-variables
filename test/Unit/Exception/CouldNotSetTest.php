@@ -13,15 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Exception\CouldNotSet;
+use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\Exception\CouldNotSet
- */
+#[Framework\Attributes\CoversClass(Exception\CouldNotSet::class)]
 final class CouldNotSetTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -30,7 +26,7 @@ final class CouldNotSetTest extends Framework\TestCase
     {
         $name = self::faker()->word();
 
-        $exception = CouldNotSet::name($name);
+        $exception = Exception\CouldNotSet::name($name);
 
         $message = \sprintf(
             'Could not set environment variable "%s".',

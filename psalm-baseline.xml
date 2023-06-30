@@ -45,6 +45,10 @@
             ),
         ])]]></code>
     </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code>invalidType</code>
+      <code>invalidValue</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/DataProvider/Value.php">
     <MixedReturnTypeCoercion>
@@ -62,6 +66,10 @@
             'bool-true' => true,
         ])]]></code>
     </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code>invalidType</code>
+      <code>invalidValue</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="test/Unit/FakeVariablesTest.php">
     <MixedArgumentTypeCoercion>

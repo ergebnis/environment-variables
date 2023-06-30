@@ -13,15 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Exception\NotSet;
+use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\Exception\NotSet
- */
+#[Framework\Attributes\CoversClass(Exception\NotSet::class)]
 final class NotSetTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -30,7 +26,7 @@ final class NotSetTest extends Framework\TestCase
     {
         $name = self::faker()->word();
 
-        $exception = NotSet::name($name);
+        $exception = Exception\NotSet::name($name);
 
         $message = \sprintf(
             'The environment variable "%s" is not set.',

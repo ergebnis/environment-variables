@@ -13,22 +13,18 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Exception\InvalidName;
+use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\Exception\InvalidName
- */
+#[Framework\Attributes\CoversClass(Exception\InvalidName::class)]
 final class InvalidNameTest extends Framework\TestCase
 {
     use Test\Util\Helper;
 
     public function testCreateReturnsException(): void
     {
-        $exception = InvalidName::create();
+        $exception = Exception\InvalidName::create();
 
         self::assertSame('Name needs to be a non-empty, trimmed string.', $exception->getMessage());
     }

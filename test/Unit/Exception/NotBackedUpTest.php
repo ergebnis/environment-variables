@@ -13,15 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Exception\NotBackedUp;
+use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\Exception\NotBackedUp
- */
+#[Framework\Attributes\CoversClass(Exception\NotBackedUp::class)]
 final class NotBackedUpTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -31,7 +27,7 @@ final class NotBackedUpTest extends Framework\TestCase
         /** @var string[] $names */
         $names = self::faker()->words();
 
-        $exception = NotBackedUp::names(...$names);
+        $exception = Exception\NotBackedUp::names(...$names);
 
         $message = \sprintf(
             'The environment variables "%s" have not been backed up. Are you sure you want to modify them?',

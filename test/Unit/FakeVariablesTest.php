@@ -16,18 +16,14 @@ namespace Ergebnis\Environment\Test\Unit;
 use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\FakeVariables;
 use Ergebnis\Environment\Test;
+use Ergebnis\Environment\TestVariables;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\FakeVariables
- *
- * @uses \Ergebnis\Environment\Exception\InvalidName
- * @uses \Ergebnis\Environment\Exception\InvalidValue
- * @uses \Ergebnis\Environment\Exception\NotSet
- * @uses \Ergebnis\Environment\TestVariables
- */
+#[Framework\Attributes\CoversClass(FakeVariables::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidName::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidValue::class)]
+#[Framework\Attributes\UsesClass(Exception\NotSet::class)]
+#[Framework\Attributes\UsesClass(TestVariables::class)]
 final class FakeVariablesTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -41,11 +37,10 @@ final class FakeVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidType()
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
      * @param mixed $name
      */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidType')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testFromArrayRejectsValuesWhenTheyHaveInvalidNames($name): void
     {
         $value = self::faker()->sentence();
@@ -58,11 +53,10 @@ final class FakeVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidType()
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidValue()
-     *
      * @param mixed $value
      */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Value::class, 'invalidType')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Value::class, 'invalidValue')]
     public function testFromArrayRejectsValuesWhenTheyHaveInvalidValues($value): void
     {
         $this->expectException(Exception\InvalidValue::class);
@@ -72,9 +66,7 @@ final class FakeVariablesTest extends Framework\TestCase
         ]);
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = FakeVariables::empty();
@@ -109,9 +101,7 @@ final class FakeVariablesTest extends Framework\TestCase
         self::assertTrue($variables->has(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = FakeVariables::empty();
@@ -152,9 +142,7 @@ final class FakeVariablesTest extends Framework\TestCase
         self::assertSame($value, $variables->get(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $value = self::faker()->sentence();
@@ -183,9 +171,7 @@ final class FakeVariablesTest extends Framework\TestCase
         self::assertSame($value, $variables->get(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = FakeVariables::empty();
