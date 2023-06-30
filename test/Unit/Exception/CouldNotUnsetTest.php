@@ -13,15 +13,11 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Exception\CouldNotUnset;
+use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\Test;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\Exception\CouldNotUnset
- */
+#[Framework\Attributes\CoversClass(Exception\CouldNotUnset::class)]
 final class CouldNotUnsetTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -30,7 +26,7 @@ final class CouldNotUnsetTest extends Framework\TestCase
     {
         $name = self::faker()->word();
 
-        $exception = CouldNotUnset::name($name);
+        $exception = Exception\CouldNotUnset::name($name);
 
         $message = \sprintf(
             'Could not unset environment variable "%s".',

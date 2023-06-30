@@ -16,19 +16,15 @@ namespace Ergebnis\Environment\Test\Unit;
 use Ergebnis\Environment\Exception;
 use Ergebnis\Environment\ReadOnlyVariables;
 use Ergebnis\Environment\Test;
+use Ergebnis\Environment\TestVariables;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\ReadOnlyVariables
- *
- * @uses \Ergebnis\Environment\Exception\InvalidName
- * @uses \Ergebnis\Environment\Exception\InvalidValue
- * @uses \Ergebnis\Environment\Exception\NotSet
- * @uses \Ergebnis\Environment\Exception\ShouldNotBeUsed
- * @uses \Ergebnis\Environment\TestVariables
- */
+#[Framework\Attributes\CoversClass(ReadOnlyVariables::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidName::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidValue::class)]
+#[Framework\Attributes\UsesClass(Exception\NotSet::class)]
+#[Framework\Attributes\UsesClass(Exception\ShouldNotBeUsed::class)]
+#[Framework\Attributes\UsesClass(TestVariables::class)]
 final class ReadOnlyVariablesTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -42,11 +38,10 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidType()
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     *
      * @param mixed $name
      */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidType')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testFromArrayRejectsValuesWhenTheyHaveInvalidNames($name): void
     {
         $value = self::faker()->sentence();
@@ -59,11 +54,10 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
     }
 
     /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidType()
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Value::invalidValue()
-     *
      * @param mixed $value
      */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Value::class, 'invalidType')]
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Value::class, 'invalidValue')]
     public function testFromArrayRejectsValuesWhenTheyHaveInvalidValues($value): void
     {
         $this->expectException(Exception\InvalidValue::class);
@@ -73,9 +67,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
         ]);
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = ReadOnlyVariables::empty();
@@ -110,9 +102,7 @@ final class ReadOnlyVariablesTest extends Framework\TestCase
         self::assertTrue($variables->has(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = ReadOnlyVariables::empty();

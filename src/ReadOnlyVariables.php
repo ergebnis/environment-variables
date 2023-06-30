@@ -18,7 +18,7 @@ final class ReadOnlyVariables implements Variables
     /**
      * @param array<string, string> $values
      */
-    private function __construct(private array $values)
+    private function __construct(private readonly array $values)
     {
     }
 

@@ -13,21 +13,17 @@ declare(strict_types=1);
 
 namespace Ergebnis\Environment\Test\Unit\Exception;
 
-use Ergebnis\Environment\Exception\ShouldNotBeUsed;
+use Ergebnis\Environment\Exception;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\Exception\ShouldNotBeUsed
- */
+#[Framework\Attributes\CoversClass(Exception\ShouldNotBeUsed::class)]
 final class ShouldNotBeUsedTest extends Framework\TestCase
 {
     public function testCreateReturnsException(): void
     {
         $method = __METHOD__;
 
-        $exception = ShouldNotBeUsed::create($method);
+        $exception = Exception\ShouldNotBeUsed::create($method);
 
         $message = \sprintf(
             'Method "%s" should not be called.',

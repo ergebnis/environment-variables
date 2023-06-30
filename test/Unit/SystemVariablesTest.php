@@ -19,15 +19,10 @@ use Ergebnis\Environment\Test;
 use Ergebnis\Environment\TestVariables;
 use PHPUnit\Framework;
 
-/**
- * @internal
- *
- * @covers \Ergebnis\Environment\SystemVariables
- *
- * @uses \Ergebnis\Environment\Exception\InvalidName
- * @uses \Ergebnis\Environment\Exception\NotSet
- * @uses \Ergebnis\Environment\TestVariables
- */
+#[Framework\Attributes\CoversClass(SystemVariables::class)]
+#[Framework\Attributes\UsesClass(Exception\InvalidName::class)]
+#[Framework\Attributes\UsesClass(Exception\NotSet::class)]
+#[Framework\Attributes\UsesClass(TestVariables::class)]
 final class SystemVariablesTest extends Framework\TestCase
 {
     use Test\Util\Helper;
@@ -46,9 +41,7 @@ final class SystemVariablesTest extends Framework\TestCase
         self::$environmentVariables->restore();
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testHasThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = new SystemVariables();
@@ -70,7 +63,7 @@ final class SystemVariablesTest extends Framework\TestCase
         \putenv(\sprintf(
             '%s=%s',
             self::NAME,
-            self::faker()->sentence,
+            self::faker()->sentence(),
         ));
 
         $variables = new SystemVariables();
@@ -78,9 +71,7 @@ final class SystemVariablesTest extends Framework\TestCase
         self::assertTrue($variables->has(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testGetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = new SystemVariables();
@@ -114,9 +105,7 @@ final class SystemVariablesTest extends Framework\TestCase
         self::assertSame($value, $variables->get(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testSetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $value = self::faker()->sentence();
@@ -145,9 +134,7 @@ final class SystemVariablesTest extends Framework\TestCase
         self::assertSame($value, \getenv(self::NAME));
     }
 
-    /**
-     * @dataProvider \Ergebnis\Environment\Test\DataProvider\Name::invalidValue()
-     */
+    #[Framework\Attributes\DataProviderExternal(Test\DataProvider\Name::class, 'invalidValue')]
     public function testUnsetThrowsInvalidNameWhenNameIsInvalid(string $name): void
     {
         $variables = new SystemVariables();
