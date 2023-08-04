@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea5f50df83657a6822c60ddc4f210c9c",
+    "content-hash": "03dfc8e7294ef4fbc144351ac20ce1ec",
     "packages": [],
     "packages-dev": [
         {
@@ -3518,16 +3518,16 @@
         },
         {
             "name": "rector/rector",
-            "version": "0.17.9",
+            "version": "0.17.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rectorphp/rector.git",
-                "reference": "8451dc04753c8a5897a837aca5ceb7f58999759c"
+                "reference": "f4c0627d5e157272cf4783099730ef7241fddb14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rectorphp/rector/zipball/8451dc04753c8a5897a837aca5ceb7f58999759c",
-                "reference": "8451dc04753c8a5897a837aca5ceb7f58999759c",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/f4c0627d5e157272cf4783099730ef7241fddb14",
+                "reference": "f4c0627d5e157272cf4783099730ef7241fddb14",
                 "shasum": ""
             },
             "require": {
@@ -3567,7 +3567,7 @@
             ],
             "support": {
                 "issues": "https://github.com/rectorphp/rector/issues",
-                "source": "https://github.com/rectorphp/rector/tree/0.17.9"
+                "source": "https://github.com/rectorphp/rector/tree/0.17.10"
             },
             "funding": [
                 {
@@ -3575,7 +3575,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-03T13:14:27+00:00"
+            "time": "2023-08-03T14:19:51+00:00"
         },
         {
             "name": "sanmai/later",
