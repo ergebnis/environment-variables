@@ -13,7 +13,8 @@
   "homepage": "https://github.com/ergebnis/environment-variables",
   "support": {
     "issues": "https://github.com/ergebnis/environment-variables/issues",
-    "source": "https://github.com/ergebnis/environment-variables"
+    "source": "https://github.com/ergebnis/environment-variables",
+    "security": "https://github.com/ergebnis/environment-variables/blob/main/.github/SECURITY.md"
   },
   "require": {
     "php": "~8.1.0 || ~8.2.0"
