@@ -24,7 +24,7 @@ final class NotBackedUpTest extends Framework\TestCase
 
     public function testNamesReturnsException(): void
     {
-        /** @var string[] $names */
+        /** @var array<string> $names */
         $names = self::faker()->words();
 
         $exception = Exception\NotBackedUp::names(...$names);
