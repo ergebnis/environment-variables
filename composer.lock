@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68dc5c447b2e5ad3612b032cffc0a2fb",
+    "content-hash": "41e5781ea7eb3186b09cfd509ec06e49",
     "packages": [],
     "packages-dev": [
         {
@@ -1174,22 +1174,22 @@
         },
         {
             "name": "ergebnis/php-cs-fixer-config",
-            "version": "6.8.0",
+            "version": "6.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/php-cs-fixer-config.git",
-                "reference": "a49d056d832abd292fac9285e41a39c573fd695a"
+                "reference": "b407b11e525c31cb760c46ec14c02c4bcd8983ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/a49d056d832abd292fac9285e41a39c573fd695a",
-                "reference": "a49d056d832abd292fac9285e41a39c573fd695a",
+                "url": "https://api.github.com/repos/ergebnis/php-cs-fixer-config/zipball/b407b11e525c31cb760c46ec14c02c4bcd8983ed",
+                "reference": "b407b11e525c31cb760c46ec14c02c4bcd8983ed",
                 "shasum": ""
             },
             "require": {
                 "erickskrauch/php-cs-fixer-custom-fixers": "~1.2.0",
                 "ext-filter": "*",
-                "friendsofphp/php-cs-fixer": "~3.35.0",
+                "friendsofphp/php-cs-fixer": "~3.35.1",
                 "kubawerlos/php-cs-fixer-custom-fixers": "~3.16.2",
                 "php": "~8.1.0 || ~8.2.0 || ~8.3.0"
             },
@@ -1237,7 +1237,7 @@
                 "security": "https://github.com/ergebnis/php-cs-fixer-config/blob/main/.github/SECURITY.md",
                 "source": "https://github.com/ergebnis/php-cs-fixer-config"
             },
-            "time": "2023-10-12T13:34:54+00:00"
+            "time": "2023-10-12T14:47:08+00:00"
         },
         {
             "name": "ergebnis/phpunit-slow-test-detector",
