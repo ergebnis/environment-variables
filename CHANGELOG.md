@@ -78,7 +78,7 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [1.0.0...1.1.0]: https://github.com/ergebnis/environment-variables/compare/1.0.0...1.1.0
 [1.1.0...1.2.0]: https://github.com/ergebnis/environment-variables/compare/1.1.0...1.2.0
 [1.2.0...1.3.0]: https://github.com/ergebnis/environment-variables/compare/1.2.0...1.3.0
-[1.2.0...1.4.0]: https://github.com/ergebnis/environment-variables/compare/1.2.0...1.4.0
+[1.3.0...1.4.0]: https://github.com/ergebnis/environment-variables/compare/1.3.0...1.4.0
 [1.4.0...main]: https://github.com/ergebnis/environment-variables/compare/1.4.0...main
 
 [#1]: https://github.com/ergebnis/environment-variables/pull/1
