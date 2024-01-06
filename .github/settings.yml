@@ -77,7 +77,7 @@ repository:
   archived: false
   default_branch: "main"
   delete_branch_on_merge: true
-  description: ":deciduous_tree: Provides an abstraction of environment variables."
+  description: "🌳 Provides a composer package with an abstraction of environment variables."
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
   has_discussions: false
