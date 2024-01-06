@@ -18,7 +18,7 @@ use Ergebnis\DataProvider;
 final class Name extends DataProvider\AbstractProvider
 {
     /**
-     * @return \Generator<string, array<int>>
+     * @return \Generator<string, list<int>>
      */
     public static function invalidType(): \Generator
     {
@@ -34,7 +34,7 @@ final class Name extends DataProvider\AbstractProvider
     }
 
     /**
-     * @return \Generator<string, array<string>>
+     * @return \Generator<string, list<string>>
      */
     public static function invalidValue(): \Generator
     {

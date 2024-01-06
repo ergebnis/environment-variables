@@ -38,7 +38,7 @@ final class Value extends DataProvider\AbstractProvider
     }
 
     /**
-     * @return \Generator<string, array<null|int|object|true>>
+     * @return \Generator<string, list<null|int|object|true>>
      */
     public static function invalidValue(): \Generator
     {
