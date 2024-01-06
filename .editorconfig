@@ -14,9 +14,6 @@ indent_size = 2
 [*.md]
 indent_size = 2
 
-[*.neon]
-indent_style = tab
-
 [*.{yaml,yml}]
 indent_size = 2
 
