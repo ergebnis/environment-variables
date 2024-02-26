@@ -26,7 +26,7 @@
     "ergebnis/php-cs-fixer-config": "^6.22.0",
     "ergebnis/phpunit-slow-test-detector": "^2.10.0",
     "infection/infection": "~0.27.10",
-    "phpunit/phpunit": "^10.5.10",
+    "phpunit/phpunit": "^10.5.11",
     "psalm/plugin-phpunit": "~0.18.4",
     "rector/rector": "^1.0.1",
     "roave/backward-compatibility-check": "^8.6.0",
