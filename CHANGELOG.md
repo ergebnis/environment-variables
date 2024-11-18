@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.5.0...main`][1.5.0...main].
 
+### Added
+
+- Added support for PHP 8.4 ([#823]), by [@localheinz]
+
 ## [`1.5.0`][1.5.0]
 
 For a full diff see [`1.4.0...1.5.0`][1.4.0...1.5.0].
@@ -111,5 +115,6 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [#463]: https://github.com/ergebnis/environment-variables/pull/463
 [#553]: https://github.com/ergebnis/environment-variables/pull/553
 [#646]: https://github.com/ergebnis/environment-variables/pull/646
+[#823]: https://github.com/ergebnis/environment-variables/pull/823
 
 [@localheinz]: https://github.com/localheinz
