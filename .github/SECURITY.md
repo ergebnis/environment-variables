@@ -4,13 +4,13 @@
 
 The following versions of `ergebnis/environment-variables` have active support:
 
-- `^1.5.0`
+- `^1.6.0`
 
 ## Unsupported Versions
 
 The following versions of `ergebnis/environment-variables` have reached their end of life:
 
-- `<1.5.0`
+- `<1.6.0`
 
 ## Reporting a Vulnerability
 
