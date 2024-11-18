@@ -6,7 +6,6 @@
 [![Renew](https://github.com/ergebnis/environment-variables/workflows/Renew/badge.svg)](https://github.com/ergebnis/environment-variables/actions)
 
 [![Code Coverage](https://codecov.io/gh/ergebnis/environment-variables/branch/main/graph/badge.svg)](https://codecov.io/gh/ergebnis/environment-variables)
-[![Type Coverage](https://shepherd.dev/github/ergebnis/environment-variables/coverage.svg)](https://shepherd.dev/github/ergebnis/environment-variables)
 
 [![Latest Stable Version](https://poser.pugx.org/ergebnis/environment-variables/v/stable)](https://packagist.org/packages/ergebnis/environment-variables)
 [![Total Downloads](https://poser.pugx.org/ergebnis/environment-variables/downloads)](https://packagist.org/packages/ergebnis/environment-variables)
