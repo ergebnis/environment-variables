@@ -8,6 +8,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 For a full diff see [`1.6.0...main`][1.6.0...main].
 
+### Changed
+
+- Allowed installation on PHP 8.5 ([#865]), by [@localheinz]
+
 ## [`1.6.0`][1.6.0]
 
 For a full diff see [`1.5.0...1.6.0`][1.5.0...1.6.0].
@@ -122,5 +126,6 @@ For a full diff see [`c0c63bb...1.0.0`][c0c63bb...1.0.0].
 [#553]: https://github.com/ergebnis/environment-variables/pull/553
 [#646]: https://github.com/ergebnis/environment-variables/pull/646
 [#823]: https://github.com/ergebnis/environment-variables/pull/823
+[#865]: https://github.com/ergebnis/environment-variables/pull/865
 
 [@localheinz]: https://github.com/localheinz
