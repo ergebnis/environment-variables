@@ -80,7 +80,7 @@ repository:
   allow_merge_commit: true
   allow_rebase_merge: false
   allow_squash_merge: false
-  archived: false
+  archived: true
   default_branch: "main"
   delete_branch_on_merge: true
   description: "🌳 Provides a composer package with an abstraction of environment variables."
